@@ -1,0 +1,119 @@
+# Python Operators - Practice Programs
+
+# 1. Arithmetic operators
+a = 10
+b = 3
+
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Floor division:", a // b)
+print("Remainder:", a % b)
+print("Power:", a ** b)
+
+
+# 2. Assignment operators
+value = 10
+
+value += 5
+print("After += :", value)
+
+value *= 2
+print("After *= :", value)
+
+value -= 10
+print("After -= :", value)
+
+value //= 3
+print("After //=:", value)
+
+
+# 3. Comparison operators
+x = 10
+y = 5
+
+print("Equal:", x == y)
+print("Not equal:", x != y)
+print("Greater:", x > y)
+print("Less:", x < y)
+print("Greater/equal:", x >= y)
+print("Less/equal:", x <= y)
+
+
+# 4. Logical operators
+marks = 82
+age = 20
+
+print("Both conditions:", marks >= 60 and age >= 18)
+print("At least one condition:", marks < 40 or age >= 18)
+print("Reversed condition:", not (marks >= 60))
+
+
+# 5. Bitwise operators
+p = 5       # binary: 0101
+q = 3       # binary: 0011
+
+print("AND:", p & q)
+print("OR:", p | q)
+print("XOR:", p ^ q)
+print("NOT:", ~p)
+print("Left shift:", p << 1)
+print("Right shift:", p >> 1)
+
+
+# 6. Membership operators
+fruits = ["apple", "banana", "cherry"]
+
+print("apple in fruits:", "apple" in fruits)
+print("grape not in fruits:", "grape" not in fruits)
+
+
+# 7. Identity operators
+first = [1, 2, 3]
+second = first
+third = [1, 2, 3]
+
+print("first is second:", first is second)
+print("first is third:", first is third)
+print("first is not third:", first is not third)
+
+
+# 8. Checking for None
+result = None
+
+if result is None:
+    print("No result available")
+
+
+# 9. Conditional (ternary) expression
+score = 72
+status = "Pass" if score >= 35 else "Fail"
+print("Result:", status)
+
+
+# 10. Small real-world style examples
+
+# Shopping total
+shirt_price = 800
+jeans_price = 1200
+print("Shopping total:", shirt_price + jeans_price)
+
+# Remaining bank balance
+balance = 10000
+withdrawal = 2500
+print("Remaining balance:", balance - withdrawal)
+
+# Full boxes
+apples = 53
+box_capacity = 10
+print("Complete boxes:", apples // box_capacity)
+
+# Even or odd
+number = 18
+print("Even number:", number % 2 == 0)
+
+# Free delivery decision
+cart_total = 1250
+delivery = "Free Delivery" if cart_total >= 1000 else "Delivery Fee Applies"
+print(delivery)
