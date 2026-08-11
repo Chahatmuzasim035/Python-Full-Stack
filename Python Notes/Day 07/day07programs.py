@@ -1,6 +1,4 @@
 # DAY 7 - PYTHON STRINGS
-
-
 # 1. Creating strings
 single_quote = 'Hello'
 double_quote = "Python"
@@ -47,8 +45,6 @@ print("Minimum:", min("abcXYZ"))
 print("Sorted:", sorted("python"))
 print("Code of A:", ord("A"))
 print("Character 97:", chr(97))
-
-
 # 8. Case conversion
 word = "PyThOn programming"
 
@@ -58,15 +54,11 @@ print(word.capitalize())
 print(word.title())
 print(word.swapcase())
 print("STRAẞE".casefold())
-
-
 # 9. Alignment and formatting
 print("python".center(12, "*"))
 print("py".ljust(6, "-"))
 print("py".rjust(6, "-"))
 print("42".zfill(5))
-
-
 # 10. Searching
 sentence = "banana"
 
@@ -75,8 +67,6 @@ print("Last a:", sentence.rfind("a"))
 print("First a with index:", sentence.index("a"))
 print("Last a with rindex:", sentence.rindex("a"))
 print("Number of a:", sentence.count("a"))
-
-
 # 11. String tests
 value = "Hello"
 
