@@ -1,0 +1,161 @@
+# Day 01 – Introduction to Programming & Python
+
+## 1. What is Programming?
+
+Programming is the process of writing instructions that tell a computer how to perform specific tasks. These instructions are written using programming languages because computers cannot directly understand human language.
+
+A collection of instructions designed to solve a problem is called a **program**.
+
+### Examples
+
+* ATM transactions
+* Online shopping
+* Food delivery apps
+* Cab booking
+* Social media applications
+
+---
+
+# 2. Programming Languages
+
+A programming language is used to create software and communicate with computers.
+
+**Popular Languages**
+
+* Python
+* Java
+* C
+* C++
+* JavaScript
+* C#
+
+---
+
+# 3. Programming Paradigms
+
+Programming can be written using different approaches. The two common paradigms are:
+
+* Procedural Programming
+* Object-Oriented Programming (OOP)
+
+---
+
+# 4. Procedural Programming
+
+Procedural programming divides a program into functions. Each function performs a specific task, and the program executes them one after another.
+
+### Example
+
+```python
+login()
+select_food()
+make_payment()
+confirm_order()
+```
+
+### Advantages
+
+* Easy to learn
+* Fast execution
+* Suitable for small applications
+
+### Disadvantages
+
+* Limited code reusability
+* Difficult to maintain large projects
+* Lower data security
+
+---
+
+# 5. Object-Oriented Programming (OOP)
+
+Object-Oriented Programming organizes code using **classes** and **objects**. It models real-world entities by combining data and related functions.
+
+### Example
+
+**Product**
+
+Attributes:
+
+* Name
+* Price
+* Rating
+
+Methods:
+
+* add_to_cart()
+* buy_now()
+
+### Advantages
+
+* Code reusability
+* Better security
+* Easy maintenance
+* Suitable for large applications
+
+### Disadvantages
+
+* Higher memory usage
+* More complex for beginners
+
+---
+
+---
+
+# 7. What is Python?
+
+Python is a high-level, interpreted programming language known for its simple syntax and readability. It supports multiple programming styles, including Object-Oriented Programming.
+
+Example:
+
+```python
+print("Hello, World!")
+```
+
+### Features
+
+* Easy to learn
+* Readable syntax
+* Open source
+* Portable
+* Large library support
+* Cross-platform
+
+---
+
+# 8. Why Learn Python?
+
+Python is popular because it allows developers to write programs with fewer lines of code and build applications quickly.
+
+It is widely used by companies such as Google, Netflix, Instagram, and Spotify.
+
+---
+
+9. Applications of Python
+
+Python is used in many fields, including:
+
+* Web Development
+* Data Science
+* Artificial Intelligence & Machine Learning
+* Automation
+* Cyber Security
+* Desktop Applications
+
+
+
+10. Memory Allocation
+
+Procedural Programming
+
+* Stores variables and functions.
+* Uses less memory.
+* No objects are created.
+
+Object-Oriented Programming
+
+* Objects are stored in heap memory.
+* Each object contains its own data.
+* Uses more memory but improves code organization and reusability.
+
+
