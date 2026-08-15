@@ -1,0 +1,198 @@
+PYTHON DAY 3 - SHORT NOTES
+==========================
+
+1. COMMENTS
+Comments are explanatory text that Python does not execute.
+
+Uses:
+- Explain code
+- Improve readability
+- Add notes
+- Temporarily disable code during testing
+
+Single-line comment:
+# This is a comment
+
+Python does not have a dedicated multi-line comment syntax.
+Triple-quoted strings can be used for multi-line text or
+documentation (docstrings).
+
+2. SWAPPING VARIABLES
+Swapping means exchanging the values of two variables.
+
+Method 1: Using a temporary variable
+temp = a
+a = b
+b = temp
+
+Method 2: Using arithmetic
+a = a + b
+b = a - b
+a = a - b
+
+Method 3: Pythonic method
+a, b = b, a
+
+The Pythonic method is the simplest and recommended approach.
+
+3. VARIABLES
+A variable is a name that refers to an object/value.
+
+Syntax:
+variable_name = value
+
+Examples:
+age = 22
+name = "Harish"
+percentage = 95.5
+
+4. DATA TYPES
+A data type identifies the kind of value stored in a variable.
+
+Python automatically determines the type from the assigned value.
+
+Main built-in types covered:
+- str
+- int
+- float
+- complex
+- list
+- tuple
+- range
+- dict
+- set
+- frozenset
+- bool
+- NoneType
+
+5. STRING (str)
+A string stores text and is written inside quotes.
+
+Examples:
+name = "Python"
+country = 'India'
+
+Properties:
+- Stores text
+- Immutable
+- Ordered
+- Supports indexing
+
+Example:
+name = "Python"
+print(name[0])
+
+Output:
+P
+
+6. INTEGER (int)
+Integers represent whole numbers.
+
+Examples:
+age = 23
+marks = 500
+temperature = -10
+
+7. FLOAT (float)
+Float represents decimal numbers.
+
+Examples:
+percentage = 97.5
+price = 199.99
+
+8. COMPLEX (complex)
+Complex numbers contain a real part and an imaginary part.
+
+Python uses j for the imaginary component.
+
+Example:
+z = 4 + 5j
+
+Access parts using:
+z.real
+z.imag
+
+9. LIST
+A list stores multiple values and uses square brackets.
+
+Example:
+items = ["Shoes", "Shirt", "Watch"]
+
+Properties:
+- Ordered
+- Mutable
+- Indexed
+- Allows duplicates
+- Can contain different data types
+
+List indexing starts from 0.
+
+Example:
+items[0]
+
+10. TUPLE
+A tuple is an ordered collection written using parentheses.
+
+Example:
+colors = ("Red", "Blue", "Green")
+
+Properties:
+- Ordered
+- Indexed
+- Immutable
+- Allows duplicates
+
+Single-item tuple:
+student = ("Raju",)
+
+The comma is important. Without the comma, it is not a tuple.
+
+11. LIST VS TUPLE
+
+List:
+- Uses []
+- Mutable
+- Can be modified
+
+Tuple:
+- Uses ()
+- Immutable
+- Cannot be modified
+
+12. RANGE
+range() generates a sequence of numbers and is commonly used
+with loops.
+
+Forms:
+range(stop)
+range(start, stop)
+range(start, stop, step)
+
+Examples:
+range(5)
+0 1 2 3 4
+
+range(2, 8)
+2 3 4 5 6 7
+
+range(0, 10, 2)
+0 2 4 6 8
+
+13. TYPE CHECKING
+The type() function is used to identify the data type of
+an object.
+
+Example:
+print(type(name))
+
+QUICK REVISION
+Comments     -> Notes ignored during execution
+Variable     -> Name referring to an object
+str          -> Text
+int          -> Whole numbers
+float        -> Decimal numbers
+complex      -> Real + imaginary values
+list         -> Mutable ordered collection
+tuple        -> Immutable ordered collection
+range        -> Generates a number sequence
+type()       -> Checks an object's data type
