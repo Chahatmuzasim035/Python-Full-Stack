@@ -1,0 +1,296 @@
+PYTHON DAY 4 - SHORT NOTES
+==========================
+
+1. SET
+
+A set is a collection that stores unique values.
+
+Properties:
+- Does not allow duplicate values
+- Mutable
+- Unordered
+- Not indexed
+- Uses curly braces {}
+- Elements must be immutable
+
+Example:
+numbers = {10, 20, 30}
+
+Duplicate values are automatically removed.
+
+Example:
+numbers = {10, 20, 20, 30}
+
+Result:
+{10, 20, 30}
+
+EMPTY SET
+
+{} creates an empty dictionary.
+
+Correct way to create an empty set:
+s = set()
+
+ADDING ELEMENTS
+
+Use add():
+
+fruits = {"Apple", "Mango"}
+fruits.add("Orange")
+
+
+2. DICTIONARY
+
+A dictionary stores data as key-value pairs.
+
+Example:
+student = {
+    "name": "Raju",
+    "age": 21,
+    "city": "Hyderabad"
+}
+
+Properties:
+- Stores key-value pairs
+- Mutable
+- Keys must be unique
+- Values can be duplicated
+- Uses {}
+
+ACCESSING VALUES
+
+student["name"]
+
+If the key does not exist, using [] raises KeyError.
+
+The get() method is safer:
+
+student.get("marks")
+
+If the key does not exist, get() returns None by default.
+
+
+3. SET VS DICTIONARY
+
+Set:
+- Stores unique values
+- No key-value relationship
+- Empty set: set()
+
+Dictionary:
+- Stores key-value pairs
+- Keys must be unique
+- Empty dictionary: {}
+
+
+4. BOOLEAN
+
+Boolean represents two logical values:
+
+True
+False
+
+Comparison operations produce Boolean results.
+
+Examples:
+10 == 10  -> True
+10 > 5    -> True
+10 < 5    -> False
+
+Boolean variables can be created directly:
+
+is_logged_in = True
+is_admin = False
+
+
+5. NONE
+
+None represents the absence of a value.
+
+Example:
+payment_status = None
+
+The data type of None is NoneType.
+
+Example:
+x = None
+print(type(x))
+
+
+6. TYPE CASTING
+
+Type casting means converting a value from one data type
+to another.
+
+Common conversion functions:
+
+int()    -> integer
+float()  -> floating-point number
+str()    -> string
+bool()   -> Boolean
+list()   -> list
+tuple()  -> tuple
+set()    -> set
+dict()   -> dictionary
+
+
+7. IMPLICIT TYPE CASTING
+
+Implicit conversion is performed automatically by Python
+when compatible types are used together.
+
+Example:
+a = 10
+b = 12.5
+
+print(a + b)
+
+Result:
+22.5
+
+Boolean values also behave numerically in arithmetic:
+True = 1
+False = 0
+
+
+8. EXPLICIT TYPE CASTING
+
+Explicit conversion is performed manually using functions
+such as int(), float(), str(), bool(), list(), tuple(),
+set() and dict().
+
+Example:
+a = 10
+
+float(a) -> 10.0
+str(a)   -> "10"
+bool(a)  -> True
+
+
+9. INTEGER CONVERSION
+
+Example:
+a = 10
+
+float(a) -> 10.0
+str(a)   -> "10"
+bool(a)  -> True
+
+An integer cannot directly be converted into a list,
+tuple or set because an integer is not iterable.
+
+
+10. FLOAT CONVERSION
+
+Example:
+a = 10.5
+
+int(a) -> 10
+str(a) -> "10.5"
+bool(a) -> True
+
+int() removes the decimal part; it does not round it.
+
+
+11. STRING CONVERSION
+
+Numeric strings can be converted into numbers.
+
+Example:
+x = "10"
+
+int(x)   -> 10
+float(x) -> 10.0
+bool(x)  -> True
+
+A non-empty string evaluates to True with bool().
+
+A string containing invalid numeric data cannot be converted
+using int() or float().
+
+
+12. BOOLEAN CONVERSION
+
+True and False can be converted into numeric values.
+
+int(True)  -> 1
+int(False) -> 0
+
+float(True)  -> 1.0
+float(False) -> 0.0
+
+str(False) -> "False"
+
+
+13. SEQUENCE CONVERSIONS
+
+List to tuple:
+tuple([10, 20, 30])
+
+Tuple to list:
+list((10, 20, 30))
+
+List to set:
+set([10, 20, 20, 30])
+
+Duplicate values are removed when converting to a set.
+
+
+14. STRING TO COLLECTION
+
+Example:
+name = "Python"
+
+list(name)
+-> ['P', 'y', 't', 'h', 'o', 'n']
+
+tuple(name)
+-> ('P', 'y', 't', 'h', 'o', 'n')
+
+set(name)
+-> unique characters
+
+The order of a set should not be relied upon.
+
+
+15. DICTIONARY CONVERSION
+
+A dictionary requires key-value pairs.
+
+Example:
+data = [
+    ("name", "Raju"),
+    ("age", 23)
+]
+
+student = dict(data)
+
+Result:
+{'name': 'Raju', 'age': 23}
+
+Invalid structures can produce TypeError.
+
+
+16. IMPORTANT CONVERSION RULES
+
+- int() cannot directly convert a list, tuple or set.
+- float() cannot directly convert a list, tuple or set.
+- list(), tuple() and set() require iterable data.
+- dict() requires suitable key-value pairs.
+- int(float_value) truncates the decimal portion.
+- bool(non-empty collection/string) is True.
+- bool(empty collection/string) is False.
+
+QUICK REVISION
+
+Set       -> Unique unordered collection
+Dictionary -> Key-value collection
+Boolean   -> True or False
+None      -> Absence of a value
+Casting   -> Conversion between data types
+
+Implicit Casting
+-> Automatic conversion by Python
+
+Explicit Casting
+-> Manual conversion using conversion functions
