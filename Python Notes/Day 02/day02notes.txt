@@ -1,0 +1,163 @@
+PYTHON DAY 2 - SHORT NOTES
+==========================
+
+1. PYTHON PROGRAM
+A Python program contains instructions written in a .py file.
+The print() function is used to display output.
+
+2. PYTHON EXECUTION
+Python source code is compiled into bytecode and then executed by
+the Python Virtual Machine (PVM).
+
+Flow:
+Source Code (.py) -> Bytecode (.pyc) -> PVM -> Output
+
+Execution Modes:
+- Interactive Mode: Executes one statement at a time.
+- Script Mode: Executes a complete program stored in a .py file.
+
+3. TOKENS
+A token is a meaningful unit of Python code.
+
+Main types:
+- Keywords
+- Identifiers
+- Literals
+- Operators
+- Delimiters/Punctuators
+
+4. KEYWORDS
+Keywords are reserved words with predefined meanings.
+Examples:
+if, else, for, while, break, continue, def, return,
+class, import, True, False, None, and, or, not.
+
+Keywords cannot be used as variable names.
+
+5. IDENTIFIERS
+Identifiers are names given by programmers to variables,
+functions, classes and modules.
+
+Rules:
+- Must begin with a letter or underscore.
+- Can contain letters, digits and underscores.
+- Cannot begin with a digit.
+- Cannot be a keyword.
+- Are case-sensitive.
+- Spaces are not allowed.
+- Meaningful names are recommended.
+
+6. LITERALS
+Literals are fixed values written directly in a program.
+
+Examples:
+10
+15.5
+"Python"
+True
+False
+None
+
+7. OPERATORS
+Operators are used to perform operations.
+
+Arithmetic:
++  -  *  /  %  //  **
+
+Comparison:
+==  !=  >  <  >=  <=
+
+Logical:
+and  or  not
+
+8. DELIMITERS
+Delimiters separate or organize different parts of Python code.
+
+Examples:
+( )  [ ]  { }  ,  :  .  ;  @  =
+
+9. STATEMENTS
+A statement is an instruction that Python executes.
+
+Examples:
+print("Hello")
+a = 10
+b = 20
+
+10. VARIABLES
+A variable is a name that refers to an object/value.
+
+Syntax:
+variable_name = value
+
+Example:
+age = 24
+
+Python does not require explicit variable declaration.
+
+11. MULTIPLE ASSIGNMENT
+Different values can be assigned to multiple variables.
+
+Example:
+a, b, c = 10, 20, 30
+
+The same value can also be assigned to multiple variables.
+
+Example:
+x = y = z = 100
+
+12. REASSIGNMENT
+A variable can refer to a new value.
+
+Example:
+a = 10
+a = 100
+
+13. SWAPPING
+Two variables can be exchanged without using a temporary variable.
+
+Example:
+a, b = b, a
+
+14. DELETING VARIABLES
+The del keyword can remove a variable.
+
+Example:
+x = 10
+del x
+
+Using x after deletion results in a NameError.
+
+15. MUTABLE OBJECTS
+Mutable objects can be changed after creation.
+
+Examples:
+- List
+- Dictionary
+- Set
+- Bytearray
+
+16. IMMUTABLE OBJECTS
+Immutable objects cannot be changed after creation.
+
+Examples:
+- int
+- float
+- complex
+- bool
+- str
+- tuple
+- bytes
+- frozenset
+
+QUICK REVISION
+Token       -> Smallest meaningful unit of code
+Statement   -> Executable instruction
+Identifier  -> Programmer-defined name
+Literal     -> Fixed value
+Keyword     -> Reserved Python word
+Operator    -> Performs an operation
+Delimiter   -> Separates code elements
+Variable    -> Name referring to an object
+Mutable     -> Can be changed
+Immutable   -> Cannot be changed
