@@ -1,0 +1,114 @@
+DAY 16 - PYTHON LAMBDA, FILTER, MAP, REDUCE & OBJECT REFERENCES
+
+1. LAMBDA
+A lambda is a small anonymous function used for short, simple operations.
+
+Syntax:
+lambda parameters: expression
+
+The expression is evaluated and returned automatically.
+
+2. NORMAL FUNCTION VS LAMBDA
+Normal function:
+- Uses def
+- Usually has a name
+- Can contain multiple statements
+- Uses return for a returned value
+
+Lambda:
+- Uses lambda
+- Usually anonymous
+- Contains one expression
+- Returns the expression result automatically
+
+3. SORTED() WITH LAMBDA
+The key argument tells sorted() which value should be used for comparison.
+
+Example:
+sorted(students, key=lambda x: x[1])
+
+reverse=True gives descending order.
+
+For dictionaries:
+sorted(students, key=lambda x: x["marks"])
+
+4. FILTER()
+filter() selects elements that satisfy a condition.
+
+Syntax:
+filter(function, iterable)
+
+Use filter() when you want to SELECT matching values.
+
+5. MAP()
+map() applies a transformation to every element.
+
+Syntax:
+map(function, iterable)
+
+Use map() when you want to TRANSFORM values.
+
+6. REDUCE()
+reduce() repeatedly combines elements to produce one final value.
+It comes from the functools module.
+
+Example:
+from functools import reduce
+reduce(lambda a, b: a + b, numbers)
+
+7. FILTER VS MAP VS REDUCE
+filter() -> select elements
+map()    -> transform elements
+reduce() -> combine elements into one result
+
+8. CALL BY OBJECT REFERENCE / CALL BY SHARING
+Python gives a function access to the same object passed to it.
+
+If a mutable object is modified inside the function, the change can be
+visible outside.
+
+Example:
+def change(data):
+    data.append(100)
+
+numbers = [10, 20, 30]
+change(numbers)
+
+The list becomes [10, 20, 30, 100].
+
+9. REASSIGNMENT
+Reassigning a function parameter does not replace the caller's variable.
+
+Example:
+def change(x):
+    x = 100
+
+a = 10
+change(a)
+
+a is still 10.
+
+10. MUTABLE VS IMMUTABLE
+Immutable:
+- int
+- float
+- str
+- tuple
+
+Mutable:
+- list
+- dict
+- set
+
+11. EASY RULE
+Modify the existing mutable object -> change can be visible outside.
+Reassign the parameter -> original variable is not replaced.
+
+QUICK REVISION
+lambda      -> short anonymous function
+sorted key  -> value used for sorting
+filter      -> select
+map         -> transform
+reduce      -> combine
+mutation    -> can affect the shared mutable object
+reassignment -> changes only the local reference
