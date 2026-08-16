@@ -1,0 +1,122 @@
+DAY 14 - PYTHON FUNCTIONS
+=============================
+
+1. WHAT IS A FUNCTION?
+A function is a reusable block of code designed to perform a particular task.
+Functions reduce repetition and make programs easier to organize, understand,
+test, and maintain.
+
+2. CREATING A FUNCTION
+Use the def keyword followed by the function name and parentheses.
+
+Syntax:
+def function_name():
+    statements
+
+The function body must be indented.
+
+3. CALLING A FUNCTION
+Defining a function does not execute it. The function runs when it is called.
+
+Example:
+def greet():
+    print("Hello")
+
+greet()
+
+4. PARAMETERS AND ARGUMENTS
+Parameters are variables written in the function definition.
+Arguments are the actual values supplied when calling the function.
+
+Example:
+def greet(name):
+    print("Hello", name)
+
+greet("Python")
+
+5. MULTIPLE PARAMETERS
+A function can accept more than one parameter.
+
+Example:
+def add(a, b):
+    print(a + b)
+
+add(10, 20)
+
+6. RETURN STATEMENT
+return sends a value back to the place where the function was called.
+
+Example:
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+print(result)
+
+print() displays a value, while return makes the value available for further
+processing.
+
+7. DEFAULT ARGUMENTS
+A parameter can have a default value. If the caller does not provide that
+argument, the default value is used.
+
+Example:
+def greet(name="User"):
+    print("Hello", name)
+
+8. KEYWORD ARGUMENTS
+Arguments can be passed using parameter names.
+
+Example:
+def student(name, age):
+    print(name, age)
+
+student(age=21, name="Asha")
+
+9. POSITIONAL ARGUMENTS
+Values are matched with parameters according to their position.
+
+Example:
+def subtract(a, b):
+    return a - b
+
+subtract(20, 5)
+
+10. VARIABLE-LENGTH ARGUMENTS
+*args allows a function to receive multiple positional arguments.
+
+**kwargs allows a function to receive multiple keyword arguments.
+
+Example:
+def total(*numbers):
+    return sum(numbers)
+
+def details(**data):
+    print(data)
+
+11. SCOPE
+A local variable is created inside a function and is normally available only
+inside that function.
+
+A global variable is defined outside functions and can be accessed from
+within a function.
+
+12. FUNCTION DESIGN
+Good functions should:
+- Perform a clear task
+- Have meaningful names
+- Avoid unnecessary repetition
+- Return useful results when appropriate
+- Be easy to test and reuse
+
+QUICK REVISION
+def       -> define a function
+call      -> execute a function
+parameter -> variable in function definition
+argument  -> value passed during a call
+return    -> send a result back
+*args     -> multiple positional arguments
+**kwargs  -> multiple keyword arguments
+local     -> function-level variable
+global    -> program-level variable
