@@ -1,0 +1,146 @@
+DAY 6 - PYTHON INPUT AND OUTPUT FORMATTING
+===============================================
+
+INPUT FORMATTING
+----------------
+
+1. Basic Input
+input() reads user input and returns it as a string.
+
+Example:
+name = input("Enter name: ")
+
+2. Integer Input
+Convert the input to an integer using int().
+
+Example:
+age = int(input("Enter age: "))
+
+3. Float Input
+Use float() when decimal values are required.
+
+Example:
+price = float(input("Enter price: "))
+
+4. Space-Separated Input
+split() separates values entered with spaces.
+
+Example:
+names = input().split()
+
+5. Comma-Separated Input
+split(",") separates values using commas.
+
+Example:
+items = input().split(",")
+
+6. List of Integers
+map() can convert each input value to an integer.
+
+Example:
+numbers = list(map(int, input().split()))
+
+7. List of Floats
+Example:
+values = list(map(float, input().split()))
+
+8. Tuple Input
+Example:
+data = tuple(map(int, input().split()))
+
+9. Set Input
+A set can be created from converted input values.
+
+Example:
+ids = set(map(int, input().split()))
+
+10. Dictionary Input
+The supplied material uses eval() for dictionary-style input.
+
+Example:
+profile = eval(input())
+
+Important: eval() should only be used with trusted input because it can
+execute Python expressions.
+
+11. Multiple Inputs
+Several values can be assigned at once using split() and unpacking.
+
+Example:
+first, second = input().split()
+
+
+OUTPUT FORMATTING
+-----------------
+
+print() is used to display information on the console.
+
+1. Basic Output
+print("Hello Python")
+
+2. Multiple Values
+Multiple objects can be passed to print(). By default, they are separated
+by a space.
+
+Example:
+print("Name:", name, "Age:", age)
+
+3. sep Parameter
+sep specifies what should appear between multiple printed values.
+
+Example:
+print(2026, 8, 9, sep="-")
+
+4. end Parameter
+end specifies what is printed after the output. The default is a newline.
+
+Example:
+print("Hello", end=" ")
+print("World")
+
+5. Escape Characters
+\n creates a new line.
+\t creates a tab space.
+
+6. Percent Formatting
+The % operator can be used with placeholders such as %s, %d and %.2f.
+
+Example:
+print("Marks: %.2f" % marks)
+
+7. f-Strings
+An f-string allows variables and expressions to be placed directly inside
+curly brackets.
+
+Example:
+print(f"Score: {score:.2f}")
+
+8. str.format()
+The format() method fills values into {} placeholders.
+
+Example:
+print("Score: {:.2f}".format(score))
+
+DECIMAL FORMATTING
+------------------
+:.2f displays two digits after the decimal point.
+:.1f displays one digit after the decimal point.
+
+QUICK REFERENCE
+---------------
+int input      -> int(input())
+float input    -> float(input())
+split input    -> input().split()
+list of ints   -> list(map(int, input().split()))
+list of floats -> list(map(float, input().split()))
+tuple of ints  -> tuple(map(int, input().split()))
+set of ints    -> set(map(int, input().split()))
+
+OUTPUT METHODS
+--------------
+print()        -> basic output
+sep            -> changes the separator
+end            -> changes what follows the output
+%s / %d / %f   -> percent-style formatting
+f"..."         -> modern formatted strings
+format()       -> placeholder-based formatting
