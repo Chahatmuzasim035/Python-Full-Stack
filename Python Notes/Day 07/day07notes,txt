@@ -1,0 +1,99 @@
+DAY 7 - PYTHON STRINGS
+=========================
+
+1. STRING BASICS
+A string is a sequence of characters written inside single quotes, double
+quotes, or triple quotes. Triple quotes can also represent multi-line text.
+
+Python strings are immutable, so their existing characters cannot be changed
+directly after creation.
+
+2. COMMON STRING OPERATIONS
+- Concatenation (+): combines strings.
+- Repetition (*): repeats a string.
+- Indexing: accesses a character using its position.
+- Slicing: extracts a portion of a string.
+- Membership (in / not in): checks whether text occurs inside a string.
+
+3. BUILT-IN FUNCTIONS USED WITH STRINGS
+- len()      -> number of characters
+- max()      -> character with the highest value
+- min()      -> character with the lowest value
+- sorted()   -> sorted list of characters
+- ord()      -> character to numeric code
+- chr()      -> numeric code to character
+
+4. CASE CONVERSION
+- upper()      -> converts to uppercase
+- lower()      -> converts to lowercase
+- capitalize() -> capitalizes the first character
+- title()      -> capitalizes each word
+- swapcase()   -> changes uppercase to lowercase and vice versa
+- casefold()   -> performs stronger lowercase conversion
+
+5. ALIGNMENT AND FORMATTING
+- center(width, fillchar) -> centers text
+- ljust(width, fillchar)  -> aligns text to the left
+- rjust(width, fillchar)  -> aligns text to the right
+- zfill(width)            -> adds zeros to the left
+
+6. SEARCHING
+- find(sub)   -> first matching position, or -1 when absent
+- rfind(sub)  -> last matching position
+- index(sub)  -> first matching position; raises an error if absent
+- rindex(sub) -> last matching position; raises an error if absent
+- count(sub)  -> number of occurrences
+
+7. STRING TESTING
+These methods return True or False:
+- startswith()
+- endswith()
+- isalpha()
+- isalnum()
+- islower()
+- isupper()
+- isspace()
+- istitle()
+- isidentifier()
+
+8. NUMERIC CHARACTER TESTS
+- isdecimal() -> most restrictive decimal-digit check
+- isdigit()   -> accepts additional digit characters such as superscripts
+- isnumeric() -> broader numeric-character check, including fractions and
+                 Roman numeral characters
+
+9. REPLACE AND TRANSLATE
+- replace(old, new) -> substitutes matching text
+- maketrans()       -> creates a translation table
+- translate(table)  -> applies a translation table
+
+10. SPLITTING AND JOINING
+- split(sep)       -> creates a list by splitting at a separator
+- rsplit(sep)      -> splits starting from the right
+- splitlines()     -> separates text at line breaks
+- join(iterable)   -> combines elements using the calling string
+- partition(sep)   -> returns three parts around the first separator
+- rpartition(sep) -> returns three parts around the last separator
+
+11. WHITESPACE REMOVAL
+- strip()  -> removes leading and trailing characters
+- lstrip() -> removes characters from the beginning
+- rstrip() -> removes characters from the end
+
+12. ENCODING AND DECODING
+- encode() -> converts a string into bytes using an encoding such as UTF-8
+- decode() -> converts bytes back into a string
+
+QUICK REVISION
+--------------
+String operations: +, *, indexing, slicing, in, not in
+Case methods: upper, lower, capitalize, title, swapcase, casefold
+Search methods: find, rfind, index, rindex, count
+Test methods: startswith, endswith, isalpha, isalnum, islower, isupper,
+              isspace, istitle, isidentifier
+Split/join: split, rsplit, splitlines, join, partition, rpartition
+Trim: strip, lstrip, rstrip
+Encoding: encode, decode
+
+The notes are rewritten in original wording while keeping the topics and
+organization of the supplied Day-7 Strings material.
