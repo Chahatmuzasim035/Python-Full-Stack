@@ -1,0 +1,118 @@
+DAY 15 - PYTHON FUNCTIONS
+=============================
+
+1. FUNCTION
+A function is a reusable block of code that performs a specific task.
+Functions improve code reusability, organization, readability, maintenance,
+and reduce repeated code.
+
+2. TYPES OF FUNCTIONS
+Python functions can be grouped into:
+- Built-in functions
+- User-defined functions
+- Anonymous (lambda) functions
+- Recursive functions
+
+3. BUILT-IN FUNCTIONS
+These are already available in Python.
+
+Examples:
+print()   -> displays output
+len()     -> returns length
+min()     -> smallest value
+max()     -> largest value
+abs()     -> absolute value
+sum()     -> adds values
+sorted()  -> returns sorted data
+type()    -> gives data type
+round()   -> rounds a number
+
+4. USER-DEFINED FUNCTIONS
+Functions created by the programmer are called user-defined functions.
+
+Syntax:
+def function_name():
+    statements
+
+The function runs when it is called.
+
+5. LAMBDA FUNCTIONS
+A lambda is a small anonymous function created using lambda.
+
+Syntax:
+lambda parameters: expression
+
+Example:
+square = lambda x: x * x
+
+6. RECURSIVE FUNCTIONS
+A recursive function calls itself.
+
+A recursive function needs a base condition so that the calls eventually stop.
+Recursion is commonly used for problems such as factorial and Fibonacci.
+
+7. FUNCTION COMPONENTS
+Important parts include:
+- def -> defines the function
+- function name -> identifies the function
+- parameters -> inputs accepted by the function
+- docstring -> describes the function
+- statements -> function body
+- return -> sends a result back
+- function call -> executes the function
+
+8. RETURN STATEMENT
+return sends a value back to the caller and immediately ends that function call.
+
+Example:
+def get_value():
+    return 100
+
+9. MULTIPLE RETURN VALUES
+A function can return more than one value.
+
+Example:
+def student():
+    return "Asha", 95
+
+name, marks = student()
+
+10. FUNCTION ARGUMENTS
+Python supports:
+- Positional arguments
+- Default arguments
+- Keyword arguments
+- Variable-length positional arguments (*args)
+- Keyword variable-length arguments (**kwargs)
+
+11. POSITIONAL ARGUMENTS
+Values are assigned to parameters according to their position.
+The order matters.
+
+12. DEFAULT ARGUMENTS
+A parameter can have a predefined value.
+If the caller does not provide a value, the default is used.
+
+13. KEYWORD ARGUMENTS
+Arguments are passed using parameter names.
+Their order does not matter.
+
+14. *args
+*args is used when the number of positional arguments is unknown.
+Python collects them into a tuple.
+
+15. **kwargs
+**kwargs is used when the number of keyword arguments is unknown.
+Python collects them into a dictionary.
+
+16. *args VS **kwargs
+*args  -> positional arguments -> tuple
+**kwargs -> keyword arguments -> dictionary
+
+QUICK REVISION
+def       -> define a function
+return    -> send a result back
+lambda    -> anonymous function
+recursion -> function calling itself
+*args     -> multiple positional arguments
+**kwargs  -> multiple keyword arguments
