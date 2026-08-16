@@ -1,0 +1,61 @@
+DAY 12 - PYTHON LOOP CONTROL
+==============================
+
+1. FOR LOOP WITH ELSE
+The else block runs when a for loop finishes normally without using break.
+
+for item in iterable:
+    if condition:
+        break
+else:
+    statements
+
+- Normal completion -> else executes
+- break encountered -> else is skipped
+
+2. WHILE LOOP WITH ELSE
+A while loop can also have an else block.
+The else block runs when the while condition becomes False without break.
+
+3. BREAK
+break immediately terminates the current loop.
+
+Common use:
+- Stop after finding a required value
+- Stop when further iterations are unnecessary
+- Exit when a required condition is reached
+
+4. CONTINUE
+continue skips the remaining code in the current iteration and moves to the
+next iteration. It does not terminate the loop.
+
+5. BREAK VS CONTINUE
+break    -> exits the entire loop
+continue -> skips only the current iteration
+
+6. ASSERT
+assert is mainly used for debugging and development checks.
+
+Syntax:
+assert condition
+assert condition, "message"
+
+If the condition is True, execution continues.
+If it is False, Python raises AssertionError.
+
+Assertions are useful for checking assumptions during development/testing.
+They should not be relied on as the main production input-validation method.
+
+7. PRACTICAL USES
+- Search a list -> break after finding the item
+- Filter values -> continue for unwanted values
+- OTP verification -> break after successful verification
+- Notification checking -> break when an unread notification is found
+- Development checks -> assert expected conditions
+
+QUICK REVISION
+for-else   -> else runs if the loop finishes without break
+while-else -> else runs if the while condition becomes false without break
+break      -> exit loop
+continue   -> skip current iteration
+assert     -> raise AssertionError when a condition is false
