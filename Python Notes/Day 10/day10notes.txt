@@ -1,0 +1,86 @@
+DAY 10 - PYTHON CONDITIONAL STATEMENTS
+============================================
+
+Control statements control the flow of program execution. They help a program
+decide which code runs, when it runs, and whether execution should continue,
+stop, or skip.
+
+The supplied material groups control statements into conditional, looping,
+and jump statements. This Day-10 material focuses on conditional statements.
+
+1. CONDITIONAL STATEMENTS
+Conditional statements execute different blocks depending on whether a
+condition evaluates to True or False.
+
+Main forms:
+- if
+- if-else
+- if-elif-else
+- Nested if
+
+2. if STATEMENT
+Runs a block only when its condition is True. If the condition is False, the
+block is skipped.
+
+Syntax:
+if condition:
+    statements
+
+3. if-else STATEMENT
+Provides two possible execution paths. The if block runs when the condition
+is True; otherwise the else block runs. Only one block executes.
+
+Syntax:
+if condition:
+    statements
+else:
+    statements
+
+4. if-elif-else STATEMENT
+Used when multiple conditions need to be checked. Python checks conditions
+from top to bottom and executes the first block whose condition is True.
+
+Syntax:
+if condition1:
+    statements
+elif condition2:
+    statements
+else:
+    statements
+
+5. NESTED if
+A nested if is an if statement inside another conditional block. The inner
+condition is checked only after the outer condition is satisfied.
+
+6. CONDITIONS
+A condition evaluates to either True or False.
+
+Common comparison operators:
+>   Greater than
+<   Less than
+>=  Greater than or equal to
+<=  Less than or equal to
+==  Equal to
+!=  Not equal to
+
+7. MODULUS (%) IN CONDITIONS
+The modulus operator gives the remainder after division.
+
+For even/odd checking:
+number % 2 == 0  -> Even
+otherwise        -> Odd
+
+8. PRACTICAL USE CASES
+- Voting eligibility
+- Stock availability
+- Login validation
+- Grade decisions
+- ATM balance checks
+- Comparing numbers
+- Even/odd checking
+
+QUICK COMPARISON
+if              -> one condition
+if-else         -> two possible outcomes
+if-elif-else    -> multiple conditions/outcomes
+Nested if       -> multiple levels of checking
