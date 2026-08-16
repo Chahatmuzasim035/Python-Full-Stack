@@ -1,0 +1,207 @@
+DAY 8 - PYTHON LISTS AND TUPLES
+=================================
+
+LISTS
+-----
+
+A list is an ordered, mutable collection that can hold multiple values.
+Lists are commonly written with square brackets [] or created with list().
+
+Example:
+numbers = [10, 20, 30]
+
+Main properties:
+- Ordered: keeps insertion order
+- Mutable: elements can be changed
+- Indexed: elements can be accessed by position
+- Iterable: can be used in loops
+- Duplicates are allowed
+- Size can grow or shrink
+- Can contain different data types
+
+LIST OPERATIONS
+---------------
+1. Concatenation (+)
+   Joins two lists.
+
+2. Repetition (*)
+   Repeats the elements of a list.
+
+3. Indexing
+   Accesses an element using its index.
+
+4. Slicing
+   Extracts part of a list.
+   Syntax: list[start:end:step]
+
+5. Membership
+   Uses in and not in to check whether an element exists.
+
+COMMON LIST FUNCTIONS
+---------------------
+- len()     -> number of elements
+- max()     -> largest element
+- min()     -> smallest element
+- sum()     -> total of numeric elements
+- sorted()  -> creates a sorted list
+- list()    -> converts an iterable into a list
+
+LIST METHODS
+------------
+Adding:
+- append()  -> adds one item at the end
+- extend()  -> adds multiple items
+- insert()  -> adds an item at a specified position
+
+Removing:
+- remove()  -> removes the first matching value
+- pop()     -> removes and returns an item using an index
+- clear()   -> removes all items
+- del       -> deletes an item or the list
+
+Searching:
+- index()   -> finds the first position of a value
+- count()   -> counts occurrences
+
+Ordering:
+- sort()    -> sorts the existing list
+- reverse() -> reverses the existing list
+- sorted()  -> returns a newly sorted list
+
+Copying:
+- copy()    -> creates a shallow copy
+
+NESTED LISTS
+------------
+A list can contain other lists.
+
+Example:
+data = [[1, 2], [3, 4]]
+
+
+TUPLES
+------
+
+A tuple is an ordered, immutable collection used to store multiple values.
+Tuples can be created using parentheses () or tuple().
+
+Example:
+numbers = (10, 20, 30)
+
+Main properties:
+- Ordered
+- Immutable
+- Iterable
+- Duplicates are allowed
+- Can contain different data types
+- Can contain nested objects
+- Mutable objects inside a tuple can still be changed
+- Generally uses less memory and can be faster than lists
+
+CREATING TUPLES
+---------------
+Empty tuple:
+t = ()
+
+Single-item tuple:
+t = (10,)
+
+Important:
+(10) is an integer, while (10,) is a tuple.
+
+TUPLE OPERATIONS
+----------------
+1. Concatenation (+)
+   Combines tuples.
+
+2. Repetition (*)
+   Repeats tuple elements.
+
+3. Indexing
+   Accesses elements by position.
+
+4. Slicing
+   Extracts a portion of a tuple.
+   Syntax: tuple[start:end:step]
+
+5. Membership
+   Uses in and not in.
+
+TUPLE FUNCTIONS
+---------------
+- len()     -> tuple length
+- max()     -> largest element
+- min()     -> smallest element
+- sum()     -> sum of numeric elements
+- sorted()  -> returns a sorted list
+- tuple()   -> converts an iterable into a tuple
+- any()     -> True if at least one value is truthy
+- all()     -> True if all values are truthy
+
+TUPLE METHODS
+-------------
+Tuples have only two built-in methods:
+- count() -> counts occurrences
+- index() -> returns the first matching index
+
+TUPLE PACKING
+-------------
+Multiple values can automatically form a tuple.
+
+Example:
+data = 10, 20, 30
+
+
+TUPLE UNPACKING
+---------------
+Tuple elements can be assigned to separate variables.
+
+Example:
+data = (10, 20, 30)
+a, b, c = data
+
+
+NESTED TUPLES
+-------------
+A tuple can contain other tuples.
+
+Example:
+data = ((1, 2), (3, 4))
+
+
+TUPLE IMMUTABILITY
+------------------
+Tuple elements cannot be directly replaced, added, or removed.
+
+However, if a tuple contains a mutable object such as a list, that inner
+object can still be modified.
+
+Example:
+data = (10, [20, 30], 40)
+data[1].append(50)
+
+
+WHEN TO USE TUPLES
+------------------
+Use tuples for fixed collections of values that should not be changed.
+They are useful for coordinates, dimensions, and records.
+
+LIST VS TUPLE
+-------------
+List:
+- Uses []
+- Mutable
+- Can add, remove, and modify elements
+- Dynamic size
+- Has many methods
+- Usually uses more memory
+- Useful for frequently changing data
+
+Tuple:
+- Uses ()
+- Immutable
+- Cannot directly add, remove, or modify elements
+- Fixed after creation
+- Has only count() and index() methods
+- Generally uses less memory
+- Useful for fixed data
