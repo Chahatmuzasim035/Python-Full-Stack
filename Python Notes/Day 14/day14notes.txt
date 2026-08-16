@@ -1,122 +1,167 @@
-DAY 14 - PYTHON FUNCTIONS
-=============================
+DAY 13 - PYTHON PATTERN PROGRAMS
+===================================
 
-1. WHAT IS A FUNCTION?
-A function is a reusable block of code designed to perform a particular task.
-Functions reduce repetition and make programs easier to organize, understand,
-test, and maintain.
+1. NESTED LOOPS
+A nested loop means one loop is placed inside another loop.
 
-2. CREATING A FUNCTION
-Use the def keyword followed by the function name and parentheses.
+Basic structure:
+for i in range(...):
+    for j in range(...):
+        statement
 
-Syntax:
-def function_name():
-    statements
+2. OUTER LOOP AND INNER LOOP
+Outer loop -> controls the number of rows.
+Inner loop -> controls the number of columns/items inside each row.
 
-The function body must be indented.
+The inner loop completes all its iterations for every one iteration of the
+outer loop.
 
-3. CALLING A FUNCTION
-Defining a function does not execute it. The function runs when it is called.
-
-Example:
-def greet():
-    print("Hello")
-
-greet()
-
-4. PARAMETERS AND ARGUMENTS
-Parameters are variables written in the function definition.
-Arguments are the actual values supplied when calling the function.
+3. print(..., end="")
+Normally print() moves to the next line.
+Using end="" keeps the next output on the same line.
 
 Example:
-def greet(name):
-    print("Hello", name)
+print("*", end="")
 
-greet("Python")
-
-5. MULTIPLE PARAMETERS
-A function can accept more than one parameter.
+4. print() AFTER THE INNER LOOP
+After the inner loop finishes one row, print() moves the cursor to the next
+line.
 
 Example:
-def add(a, b):
-    print(a + b)
+for i in range(3):
+    for j in range(3):
+        print("*", end="")
+    print()
 
-add(10, 20)
+Output:
+***
+***
+***
 
-6. RETURN STATEMENT
-return sends a value back to the place where the function was called.
+5. BASIC SQUARE PATTERN
+For a square:
+- Number of rows = number of columns.
+- Outer loop controls rows.
+- Inner loop controls stars in each row.
 
-Example:
-def add(a, b):
-    return a + b
+6. RECTANGLE PATTERN
+For a rectangle:
+- Outer loop represents rows.
+- Inner loop represents columns.
+Example: 3 rows and 5 columns.
 
-result = add(10, 20)
-
-print(result)
-
-print() displays a value, while return makes the value available for further
-processing.
-
-7. DEFAULT ARGUMENTS
-A parameter can have a default value. If the caller does not provide that
-argument, the default value is used.
-
-Example:
-def greet(name="User"):
-    print("Hello", name)
-
-8. KEYWORD ARGUMENTS
-Arguments can be passed using parameter names.
+7. INCREASING TRIANGLE
+The number of items increases with each row.
 
 Example:
-def student(name, age):
-    print(name, age)
+*
+**
+***
+****
+*****
 
-student(age=21, name="Asha")
+The inner loop can use range(i).
 
-9. POSITIONAL ARGUMENTS
-Values are matched with parameters according to their position.
-
-Example:
-def subtract(a, b):
-    return a - b
-
-subtract(20, 5)
-
-10. VARIABLE-LENGTH ARGUMENTS
-*args allows a function to receive multiple positional arguments.
-
-**kwargs allows a function to receive multiple keyword arguments.
+8. DECREASING TRIANGLE
+The number of items decreases with each row.
 
 Example:
-def total(*numbers):
-    return sum(numbers)
+*****
+****
+***
+**
+*
 
-def details(**data):
-    print(data)
+A reverse range such as range(5, 0, -1) can control the rows.
 
-11. SCOPE
-A local variable is created inside a function and is normally available only
-inside that function.
+9. NUMBER PATTERNS
+Nested loops can print:
+- Increasing numbers
+- Repeated numbers
+- Reverse numbers
+- Continuous numbers
+- Palindromic numbers
 
-A global variable is defined outside functions and can be accessed from
-within a function.
+10. ALPHABET PATTERNS
+Characters can be generated using chr().
 
-12. FUNCTION DESIGN
-Good functions should:
-- Perform a clear task
-- Have meaningful names
-- Avoid unnecessary repetition
-- Return useful results when appropriate
-- Be easy to test and reuse
+Example:
+chr(65) -> A
+chr(66) -> B
+
+So chr(65 + j) can produce A, B, C, ...
+
+11. HOLLOW PATTERNS
+For a hollow square or rectangle, print a star when the current position is
+on the border.
+
+Typical condition:
+i == 0 or i == rows - 1 or j == 0 or j == columns - 1
+
+Otherwise print a space.
+
+12. PYRAMID PATTERN
+A centered pyramid needs:
+- Spaces before the stars
+- Increasing number of stars
+
+For row i:
+spaces = n - i
+stars = 2 * i - 1
+
+13. INVERTED PYRAMID
+An inverted pyramid starts with the largest row and decreases the number of
+stars toward the bottom.
+
+14. DIAMOND PATTERN
+A diamond can be created using:
+- An increasing pyramid
+- Followed by a decreasing inverted pyramid
+
+15. PALINDROMIC NUMBER PATTERN
+Example:
+1
+121
+12321
+1234321
+
+The row first increases and then decreases.
+
+16. NESTED LOOP PAIRS
+Two loops can be used to generate all combinations/pairs.
+
+For 1 to 3:
+1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+3 1
+3 2
+3 3
+
+17. MULTIPLICATION TABLES
+Nested loops can generate tables from 1 to 5.
+The outer loop selects the table.
+The inner loop generates the multipliers.
+
+18. PATTERN THINKING METHOD
+Before writing code, ask:
+1. How many rows are there?
+2. What changes in each row?
+3. How many spaces are needed?
+4. How many stars/numbers are needed?
+5. Which loop controls the rows?
+6. Which loop controls the items?
 
 QUICK REVISION
-def       -> define a function
-call      -> execute a function
-parameter -> variable in function definition
-argument  -> value passed during a call
-return    -> send a result back
-*args     -> multiple positional arguments
-**kwargs  -> multiple keyword arguments
-local     -> function-level variable
-global    -> program-level variable
+Outer loop  -> rows
+Inner loop  -> columns/items
+end=""      -> stay on the same line
+print()     -> move to the next line
+range(i)    -> useful when row length changes
+
+Golden Rule:
+OUTER LOOP = ROWS
+INNER LOOP = COLUMNS / ITEMS

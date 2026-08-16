@@ -1,5 +1,4 @@
 # DAY 12 - PYTHON LOOP CONTROL
-# Rewritten practice programs for GitHub.
 
 # 1. FOR LOOP WITH ELSE - SEARCH
 numbers = [10, 20, 30, 40, 50]
