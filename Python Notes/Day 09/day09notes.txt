@@ -1,0 +1,187 @@
+
+
+
+DAY 9 - PYTHON SETS AND DICTIONARIES
+=======================================
+
+SETS
+----
+
+A set is an unordered, mutable collection that stores unique values.
+Sets are commonly created with set() or set literals.
+
+Example:
+numbers = {10, 20, 30}
+
+SET PROPERTIES
+- Unordered
+- Mutable
+- Not indexed
+- Iterable
+- Automatically removes duplicates
+- Can contain different data types
+- Size can change
+- Can contain hashable immutable objects such as tuples and frozensets
+- Mutable objects such as lists, sets, and dictionaries cannot be stored
+  directly as set elements
+
+CREATING SETS
+- Empty set: set()
+- Duplicate values are automatically removed
+
+SET OPERATIONS
+- Membership: in, not in
+- Union: | or union()
+- Intersection: & or intersection()
+- Difference: - or difference()
+- Symmetric difference: ^ or symmetric_difference()
+- Subset: <= or issubset()
+- Superset: >= or issuperset()
+
+SET FUNCTIONS
+- len()     -> number of elements
+- max()     -> largest element
+- min()     -> smallest element
+- sum()     -> total of numeric elements
+- sorted()  -> sorted list
+- set()     -> converts an iterable to a set
+- any()     -> True if any element is truthy
+- all()     -> True if all elements are truthy
+
+SET METHODS
+Adding:
+- add()
+- update()
+
+Removing:
+- remove()  -> raises an error if the value is absent
+- discard() -> does not raise an error if absent
+- pop()     -> removes an arbitrary element
+- clear()
+
+Copying:
+- copy()
+
+Relations:
+- union()
+- intersection()
+- difference()
+- symmetric_difference()
+- issubset()
+- issuperset()
+- isdisjoint()
+
+FROZENSET
+A frozenset is an immutable form of a set.
+It is unordered, stores unique elements, and is hashable. It can therefore
+be used inside sets and as a dictionary key.
+
+WHY USE SETS?
+- Remove duplicates
+- Perform set-based comparisons
+- Check membership efficiently
+- Store unique values
+- Compare collections
+
+
+DICTIONARIES
+------------
+
+A dictionary stores information as key-value pairs. It can be created with
+{} or dict().
+
+Example:
+student = {
+    "id": 101,
+    "name": "Ravi",
+    "course": "Python"
+}
+
+DICTIONARY PROPERTIES
+- Maintains insertion order in Python 3.7+
+- Mutable
+- Accessed using keys rather than numeric indexes
+- Iterable through keys, values, and items
+- Keys must be unique
+- Values may repeat
+- Can contain different data types
+- Size can change
+- Supports nested structures
+- Dictionary keys must be hashable
+
+CREATING DICTIONARIES
+- Empty: {}
+- Empty with constructor: dict()
+- Key-value pairs inside {}
+- dict() can also create dictionaries from keyword arguments
+
+DICTIONARY OPERATIONS
+1. Access values using keys:
+   student["name"]
+
+2. Update an existing value:
+   student["age"] = 23
+
+3. Add a new key-value pair:
+   student["course"] = "Python"
+
+4. Remove an item:
+   del student["age"]
+
+5. Membership checks keys:
+   "name" in student
+
+DICTIONARY FUNCTIONS
+- len()     -> number of key-value pairs
+- max()     -> maximum key
+- min()     -> minimum key
+- sorted()  -> sorted list of keys
+- dict()    -> creates a dictionary
+- any()     -> checks truthiness of keys
+- all()     -> checks truthiness of keys
+
+DICTIONARY METHODS
+Access:
+- get()
+- keys()
+- values()
+- items()
+
+Adding/updating:
+- update()
+- setdefault()
+
+Removing:
+- pop()
+- popitem()
+- clear()
+
+Copying:
+- copy()
+
+Creation:
+- fromkeys()
+
+NESTED DICTIONARIES
+A dictionary can contain another dictionary as a value.
+
+Example:
+students = {
+    "s1": {"name": "Ravi", "age": 22},
+    "s2": {"name": "Teja", "age": 21}
+}
+
+MUTABLE VALUES
+Dictionary values can be mutable objects such as lists. The object stored as
+the value can be modified.
+
+VALID DICTIONARY KEYS
+Keys must be hashable. Examples from the material include integers, floats,
+booleans, strings, and tuples containing suitable values.
+
+WHY USE DICTIONARIES?
+- Keep related information together
+- Retrieve values using meaningful keys
+- Represent real-world objects
+- Build flexible data structures
+- Commonly used with APIs, JSON, databases, and applications
