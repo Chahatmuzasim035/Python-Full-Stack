@@ -1,0 +1,77 @@
+DAY 13 - PYTHON NUMBER PROGRAMS USING LOOPS
+
+1. REVERSE A NUMBER
+Reversing a number changes the order of its digits.
+Example: 123 -> 321
+
+Important:
+n % 10  -> gets the last digit
+n // 10 -> removes the last digit
+rev = rev * 10 + digit -> builds the reverse
+
+2. PALINDROME NUMBER
+A palindrome reads the same from left to right and right to left.
+Examples: 121, 1331
+
+Loop method:
+- Store the original number.
+- Build its reverse.
+- Compare original and reverse.
+
+A simpler alternative is:
+s = str(number)
+s == s[::-1]
+
+3. COUNT EVEN DIGITS
+Visit each digit, convert it to an integer, and check:
+digit % 2 == 0
+Increase a counter whenever the condition is True.
+
+4. FACTORS OF A NUMBER
+A factor divides a number without leaving a remainder.
+Condition:
+n % i == 0
+
+Example:
+Factors of 6 -> 1, 2, 3, 6
+
+5. COUNT FACTORS
+Use a counter and increase it whenever n % i == 0.
+
+6. FACTORIAL
+Factorial is the product of all positive integers up to a number.
+Example:
+5! = 5 x 4 x 3 x 2 x 1 = 120
+
+7. ARMSTRONG NUMBER
+For a 3-digit number, an Armstrong number equals the sum of the cubes of
+its digits.
+Example:
+153 = 1^3 + 5^3 + 3^3 = 153
+
+8. CONTINUE
+continue skips the remaining statements of the current iteration and moves
+to the next iteration.
+
+9. BREAK VS CONTINUE
+break    -> stops the entire loop
+continue -> skips only the current iteration
+pass     -> does nothing
+
+10. IMPORTANT NUMBER-PROGRAM PATTERNS
+n % 10       -> get last digit
+n // 10      -> remove last digit
+n % i == 0   -> check a factor
+count += 1   -> increase a counter
+
+11. MASTER DIGIT-PROCESSING PATTERN
+1. Read the number.
+2. Store the original if needed.
+3. Repeat while n > 0.
+4. Get the last digit with n % 10.
+5. Process the digit.
+6. Remove the last digit with n // 10.
+7. Repeat until n becomes 0.
+
+This pattern is useful for reverse, palindrome, sum of digits, even-digit
+counting, and Armstrong-number programs.
