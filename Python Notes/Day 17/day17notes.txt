@@ -1,0 +1,89 @@
+DAY 17 - RECURSIVE FUNCTIONS & PASSING OBJECTS
+
+1. RECURSION
+Recursion is a technique where a function calls itself to solve a smaller
+version of the same problem.
+
+2. TWO PARTS OF RECURSION
+Base case -> condition that stops recursion.
+Recursive case -> function calls itself with a smaller/simpler input.
+
+3. FACTORIAL
+n! = n × (n-1) × ... × 1
+Example: 5! = 120
+
+4. FIBONACCI
+Sequence: 0, 1, 1, 2, 3, 5, 8, ...
+F(0) = 0
+F(1) = 1
+F(n) = F(n-1) + F(n-2)
+
+5. SUM OF NATURAL NUMBERS
+The first n natural numbers can be added recursively.
+Example: 1 + 2 + 3 + 4 + 5 = 15
+
+6. CALL STACK
+Every recursive call is stored in the call stack. Too many calls use more
+memory and may cause RecursionError.
+
+7. ADVANTAGES
+- Breaks some problems into smaller similar problems.
+- Can simplify complex solutions.
+- Useful in tree traversal and backtracking.
+
+8. DISADVANTAGES
+- Uses more memory than many iterative solutions.
+- Repeated calls can reduce performance.
+- Excessive recursion may cause RecursionError.
+
+9. BEST PRACTICES
+- Always define a base case.
+- Make every recursive call move toward the base case.
+- Use iteration or optimization when recursion is inefficient.
+
+10. PASSING OBJECTS IN PYTHON
+Python passes function arguments by object reference. The behavior depends on
+whether the object is mutable or immutable.
+
+11. IMMUTABLE OBJECTS
+Examples: int, float, string, tuple.
+Changing the parameter inside the function does not change the original
+immutable object.
+
+12. MUTABLE OBJECTS
+Examples: list, dictionary, set.
+If the existing object is modified inside the function, the change can be
+visible outside the function.
+
+13. IMMUTABLE EXAMPLE
+def modify_value(num):
+    num += 10
+
+x = 5
+modify_value(x)
+
+x remains 5.
+
+14. MUTABLE EXAMPLE
+def modify_list(items):
+    items.append(4)
+
+numbers = [1, 2, 3]
+modify_list(numbers)
+
+numbers becomes [1, 2, 3, 4].
+
+15. PREVENTING UNWANTED MODIFICATION
+A copy of a mutable object can be made before modifying it.
+
+Example:
+items = items[:]
+
+QUICK REVISION
+Recursion -> function calls itself
+Base case -> stops recursion
+Recursive case -> calls itself again
+Call stack -> stores active recursive calls
+Immutable -> in-place change is not possible
+Mutable -> in-place changes can be visible outside
+Copy -> helps protect the original mutable object

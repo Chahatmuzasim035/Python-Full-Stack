@@ -1,6 +1,4 @@
-# DAY 13 - PYTHON PATTERN PROGRAMS
-# Nested for-loop practice
-
+# DAY 14 - PYTHON PATTERN PROGRAMS
 # Q1. Increasing Star Triangle
 for i in range(1, 6):
     for j in range(i):
