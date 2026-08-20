@@ -1,0 +1,73 @@
+DAY 18 - LIST COMPREHENSION & GENERATORS
+
+LIST COMPREHENSION
+------------------
+List comprehension is a short way to create a new list using a loop in one line.
+
+Syntax:
+[expression for item in iterable if condition]
+
+expression -> value added to the new list
+item -> current value
+iterable -> collection being traversed
+condition -> optional filter
+
+Examples:
+[x * x for x in range(6)]
+[n for n in numbers if n % 2 == 0]
+[name.upper() for name in names]
+
+It can be used with strings, integers, floats, booleans, tuples and dictionaries.
+
+Nested list comprehension can flatten nested data:
+[color for product in products_colors for color in product["colors"]]
+
+GENERATORS
+----------
+A generator is a special iterable that produces values one at a time instead
+of storing all values in memory.
+
+Generators use the yield keyword.
+
+Why use generators?
+- Memory efficiency
+- Values are generated only when needed
+- Useful for large datasets
+- Useful for infinite sequences
+- Useful for processing data in chunks
+
+Generator example:
+def count_up_to(n):
+    count = 1
+    while count <= n:
+        yield count
+        count += 1
+
+Calling the generator function creates a generator object. Execution starts
+when its values are requested.
+
+YIELD
+-----
+yield produces a value and pauses the function. The generator remembers its
+state and continues from the previous yield when requested again.
+
+NEXT()
+------
+next() manually gets the next value from a generator.
+
+After all values are exhausted, calling next() raises StopIteration.
+
+GENERATOR VS NORMAL FUNCTION
+----------------------------
+Normal function -> returns a result and completes execution.
+Generator -> produces values one at a time and can pause/resume.
+
+QUICK REVISION
+--------------
+List comprehension -> one-line list creation
+Condition -> filters list items
+Nested comprehension -> handles nested iteration
+Generator -> lazy iterable
+yield -> produces and pauses
+next() -> gets the next value
+StopIteration -> generator has no more values
