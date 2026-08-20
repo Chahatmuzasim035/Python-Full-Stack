@@ -1,0 +1,113 @@
+DAY 19 - MODULES & USER-DEFINED MODULES
+=============================================
+
+1. WHAT IS A MODULE?
+A module is a Python file containing reusable code such as functions,
+variables, and other definitions.
+
+A module helps organize a program into separate, manageable files.
+
+2. USER-DEFINED MODULE
+A user-defined module is a Python file created by the programmer to store
+reusable code.
+
+Example module:
+my_module.py
+
+def greet(name):
+    return f"Hello, {name}!"
+
+pi = 3.14159
+
+3. IMPORTING A MODULE
+Use the import keyword.
+
+Example:
+import my_module
+
+print(my_module.greet("Alice"))
+print(my_module.pi)
+
+4. ACCESSING MODULE MEMBERS
+After importing a module, use dot notation:
+
+module_name.function_name()
+module_name.variable_name
+
+Example:
+my_module.greet("Alice")
+my_module.pi
+
+5. IMPORTING A SPECIFIC FUNCTION
+A particular function can be imported directly.
+
+Syntax:
+from my_module import greet
+
+Then:
+print(greet("Bob"))
+
+6. IMPORTING USING AN ALIAS
+A shorter name can be given to a module.
+
+Example:
+import my_module as m
+
+print(m.greet("Charlie"))
+
+7. MODULE SEARCH PATH
+When Python imports a module, it searches locations including:
+1. Current working directory
+2. Built-in module locations
+3. Directories listed in sys.path
+
+8. VIEWING sys.path
+The module search path can be viewed using:
+
+import sys
+print(sys.path)
+
+9. ADDING A CUSTOM PATH
+A directory can be added to the search path:
+
+import sys
+sys.path.append("C:/PythonModules")
+
+10. __name__ VARIABLE
+Every Python file has the special variable __name__.
+
+When the file is run directly:
+__name__ == "__main__"
+
+When the file is imported:
+__name__ contains the module name.
+
+11. if __name__ == "__main__"
+This condition checks whether a file is being executed directly.
+
+Example:
+if __name__ == "__main__":
+    print("Running directly")
+
+The code inside the block runs when the file is executed directly, but not
+when the file is imported as a module.
+
+12. WHY USE __name__ == "__main__"?
+It helps prevent test or execution code from running automatically when the
+module is imported.
+
+13. MAIN BENEFITS OF MODULES
+- Code reusability
+- Better organization
+- Easier maintenance
+- Separation of functionality
+- Avoids unnecessary repetition
+
+QUICK REVISION
+Module              -> Python file containing reusable code
+import              -> imports a module
+from ... import ... -> imports a specific member
+as                  -> creates an alias
+sys.path            -> module search locations
+__name__            -> identifies how a file is being executed
+__main__            -> value when the file is run directly
