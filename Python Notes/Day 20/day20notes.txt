@@ -1,0 +1,903 @@
+# Day 20 - File Operations, Directories and Email Automation
+
+---
+
+# PART A - FILE OPERATIONS
+
+## 1. What is a File?
+
+A file is a place where information can be stored permanently.
+
+Examples:
+
+- Text files (.txt)
+- CSV files (.csv)
+- PDF files (.pdf)
+- Image files (.jpg, .png)
+
+Python provides built-in features for creating, reading, writing and
+modifying files.
+
+---
+
+## 2. Why Do We Use Files?
+
+Files are useful when information needs to be stored permanently.
+
+Common uses include:
+
+- Saving user information
+- Storing application data
+- Saving reports
+- Keeping logs
+- Reading previously saved information
+- Sharing data between programs
+
+---
+
+## 3. Basic File Handling Steps
+
+The basic process is:
+
+1. Open the file
+2. Read from or write to the file
+3. Close the file
+
+General syntax:
+
+open("filename", "mode")
+
+Example:
+
+file = open("example.txt", "r")
+
+---
+
+# 4. File Opening Modes
+
+| Mode | Meaning |
+|------|---------|
+| r | Read |
+| w | Write |
+| a | Append |
+| x | Create a new file |
+| b | Binary mode |
+| r+ | Read and write |
+| w+ | Write and read |
+| a+ | Append and read |
+
+---
+
+## 5. Read Mode - `r`
+
+The `r` mode is used to read existing content.
+
+Example:
+
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+If the file does not exist, Python normally raises a FileNotFoundError.
+
+---
+
+## 6. Write Mode - `w`
+
+The `w` mode is used to write data.
+
+If the file already contains information, the existing content is
+replaced.
+
+Example:
+
+with open("example.txt", "w") as file:
+    file.write("Welcome to Python")
+
+Important:
+
+`w` mode can remove previously stored content.
+
+---
+
+## 7. Append Mode - `a`
+
+The `a` mode adds new information to the end of the existing file.
+
+Example:
+
+with open("example.txt", "a") as file:
+    file.write("\nNew information added.")
+
+Existing content is preserved.
+
+---
+
+## 8. Create Mode - `x`
+
+The `x` mode is used to create a new file.
+
+Example:
+
+with open("new_file.txt", "x") as file:
+    file.write("New file created.")
+
+If the file already exists, Python raises an error.
+
+---
+
+# 9. Binary Mode - `b`
+
+Binary mode is useful when working with files such as:
+
+- Images
+- PDFs
+- Audio
+- Videos
+
+Example:
+
+file = open("image.jpg", "rb")
+
+Here:
+
+`r` = read
+
+`b` = binary
+
+---
+
+# 10. Reading a Complete File
+
+The `read()` method reads the complete contents of a file.
+
+Example:
+
+with open("example.txt", "r") as file:
+    data = file.read()
+
+print(data)
+
+---
+
+# 11. Reading One Line
+
+The `readline()` method reads one line from a file.
+
+Example:
+
+with open("example.txt", "r") as file:
+    line = file.readline()
+
+print(line)
+
+Calling `readline()` again reads the next line.
+
+---
+
+# 12. Reading All Lines
+
+The `readlines()` method reads all lines and returns them as a list.
+
+Example:
+
+with open("example.txt", "r") as file:
+    lines = file.readlines()
+
+print(lines)
+
+---
+
+# 13. Writing a String
+
+The `write()` method writes a string into a file.
+
+Example:
+
+with open("data.txt", "w") as file:
+    file.write("Python is easy to learn.")
+
+`write()` expects a string.
+
+---
+
+# 14. Writing Multiple Lines
+
+The `writelines()` method writes multiple strings.
+
+Example:
+
+lines = [
+    "Python\n",
+    "Java\n",
+    "C++\n"
+]
+
+with open("languages.txt", "w") as file:
+    file.writelines(lines)
+
+Important:
+
+`writelines()` does not automatically add `\n`.
+
+The newline character must be included in the strings when required.
+
+---
+
+# 15. Closing a File
+
+The `close()` method closes an opened file.
+
+Example:
+
+file = open("example.txt", "r")
+
+data = file.read()
+
+file.close()
+
+Closing a file releases system resources.
+
+---
+
+# 16. Using `with`
+
+Using `with` is the recommended way to work with files.
+
+Example:
+
+with open("example.txt", "r") as file:
+    data = file.read()
+
+print(data)
+
+The file is automatically closed after the `with` block finishes.
+
+---
+
+# 17. Checking Whether a File Exists
+
+The `os.path.exists()` function can check whether a file or path exists.
+
+Example:
+
+import os
+
+if os.path.exists("example.txt"):
+    print("File exists")
+else:
+    print("File does not exist")
+
+---
+
+# 18. File Paths
+
+A path tells Python where a file or directory is located.
+
+Example:
+
+folder = "documents"
+file_name = "notes.txt"
+
+---
+
+# 19. `os.path.join()`
+
+`os.path.join()` combines different parts of a path.
+
+Example:
+
+import os
+
+file_path = os.path.join("documents", "notes.txt")
+
+print(file_path)
+
+This is preferable to manually joining paths because it works correctly
+across operating systems.
+
+---
+
+# 20. File Size
+
+The `os.path.getsize()` function returns the file size in bytes.
+
+Example:
+
+import os
+
+file_path = "example.txt"
+
+if os.path.exists(file_path):
+    print(os.path.getsize(file_path))
+
+---
+
+# 21. Absolute Path
+
+`os.path.abspath()` returns the complete path of a file.
+
+Example:
+
+import os
+
+print(os.path.abspath("example.txt"))
+
+---
+
+# 22. Raw Strings
+
+Raw strings are useful for Windows file paths.
+
+A raw string is created by putting `r` before the string.
+
+Example:
+
+path = r"C:\Users\Student\Documents\data.txt"
+
+The backslashes are treated as normal characters instead of escape
+sequences.
+
+---
+
+# 23. Read and Write Modes
+
+The `+` symbol can be combined with another file mode.
+
+### r+
+
+Reads and writes.
+
+The file must already exist.
+
+Example:
+
+file = open("data.txt", "r+")
+
+---
+
+### w+
+
+Writes and reads.
+
+Existing content is replaced.
+
+Example:
+
+file = open("data.txt", "w+")
+
+---
+
+### a+
+
+Appends and reads.
+
+Existing content is preserved.
+
+Example:
+
+file = open("data.txt", "a+")
+
+---
+
+# 24. Directory Operations
+
+A directory is a folder used to organize files and other folders.
+
+Python mainly uses the `os` and `shutil` modules for directory
+management.
+
+---
+
+# 25. `os.mkdir()`
+
+Creates a single directory.
+
+Example:
+
+import os
+
+os.mkdir("new_folder")
+
+---
+
+# 26. `os.makedirs()`
+
+Creates directories including required parent directories.
+
+Example:
+
+import os
+
+os.makedirs("parent_folder/child_folder")
+
+---
+
+# 27. Checking a Directory
+
+Example:
+
+import os
+
+if not os.path.exists("new_folder"):
+    os.mkdir("new_folder")
+
+This avoids trying to create a directory that already exists.
+
+---
+
+# 28. `os.rmdir()`
+
+Removes an empty directory.
+
+Example:
+
+import os
+
+os.rmdir("new_folder")
+
+Important:
+
+`os.rmdir()` cannot remove a directory that still contains files.
+
+---
+
+# 29. `shutil` Module
+
+`shutil` provides high-level operations for working with files and
+directories.
+
+It can be used for:
+
+- Copying
+- Moving
+- Removing
+- Archiving
+- Managing folders
+
+---
+
+# 30. `shutil.rmtree()`
+
+This removes a directory and everything inside it.
+
+Example:
+
+import shutil
+
+shutil.rmtree("parent_folder")
+
+Use this carefully because it can remove files and subdirectories
+inside the selected folder.
+
+---
+
+# 31. Listing Directory Contents
+
+`os.listdir()` returns the contents of a directory.
+
+Example:
+
+import os
+
+files = os.listdir(".")
+
+for item in files:
+    print(item)
+
+The `"."` represents the current directory.
+
+---
+
+# PART B - EMAIL SENDING USING PYTHON
+
+# 32. Email Sending Project
+
+Python can be used to automatically send an email to a recipient.
+
+The program can contain:
+
+- Sender address
+- Receiver address
+- Subject
+- Message body
+
+This avoids manually opening an email service every time an automated
+message needs to be sent.
+
+---
+
+# 33. What is SMTP?
+
+SMTP stands for:
+
+Simple Mail Transfer Protocol
+
+It is the standard protocol used for sending email messages.
+
+---
+
+# 34. What is `smtplib`?
+
+`smtplib` is a Python module that provides functionality for communicating
+with SMTP servers.
+
+It is included with Python, so it normally does not need to be installed
+separately.
+
+Import it using:
+
+import smtplib
+
+---
+
+# 35. What is `SMTP_SSL()`?
+
+`SMTP_SSL()` creates a secure connection to an SMTP server.
+
+For Gmail, the connection can be created using:
+
+smtplib.SMTP_SSL("smtp.gmail.com", 465)
+
+Here:
+
+smtp.gmail.com
+= Gmail SMTP server
+
+465
+= SMTP SSL port
+
+---
+
+# 36. Why Use a Secure Connection?
+
+A secure SMTP connection protects communication between the Python
+program and the email server.
+
+It helps protect login credentials and email information while being
+transmitted.
+
+---
+
+# 37. `EmailMessage`
+
+`EmailMessage` is used to create the structure of an email.
+
+Import it using:
+
+from email.message import EmailMessage
+
+Create an email object:
+
+msg = EmailMessage()
+
+---
+
+# 38. Email Fields
+
+An email normally contains:
+
+### Subject
+
+msg["Subject"] = "Meeting Reminder"
+
+### Sender
+
+msg["From"] = sender_email
+
+### Receiver
+
+msg["To"] = receiver_email
+
+---
+
+# 39. Adding the Email Body
+
+The `set_content()` method adds the message body.
+
+Example:
+
+msg.set_content("This is my email message.")
+
+For multiple lines:
+
+msg.set_content("""
+Hello,
+
+This is a Python-generated email.
+
+Regards,
+Student
+""")
+
+---
+
+# 40. Gmail Setup
+
+To use Gmail for automated email sending, account security settings
+must be configured appropriately.
+
+A common approach is:
+
+1. Enable 2-Step Verification.
+2. Generate a Gmail App Password.
+3. Use the App Password for the application.
+
+An App Password should be treated as a secret credential.
+
+---
+
+# 41. Important Security Rule
+
+Never place your actual Gmail password or App Password inside a public
+GitHub repository.
+
+Do not write:
+
+app_password = "real_password"
+
+Instead, use:
+
+app_password = "your_app_password_here"
+
+For a real project, credentials should preferably be stored using
+environment variables or another secure secret-management method.
+
+---
+
+# 42. Email Account Details
+
+Example:
+
+sender_email = "your_email@gmail.com"
+
+receiver_email = "receiver@example.com"
+
+app_password = "your_app_password_here"
+
+---
+
+# 43. Sending an Email
+
+The general process is:
+
+1. Import required modules.
+2. Create the email object.
+3. Add sender.
+4. Add receiver.
+5. Add subject.
+6. Add message body.
+7. Connect to Gmail SMTP.
+8. Login.
+9. Send the message.
+10. Close the connection.
+
+---
+
+# 44. SMTP Login
+
+The login method authenticates the sender.
+
+Example:
+
+smtp.login(sender_email, app_password)
+
+---
+
+# 45. Sending the Message
+
+The message can be sent using:
+
+smtp.send_message(msg)
+
+---
+
+# 46. Error Handling
+
+Email operations may fail because of:
+
+- Incorrect credentials
+- Invalid recipient address
+- Internet problems
+- SMTP configuration problems
+- Account security restrictions
+
+Use `try` and `except` to handle errors.
+
+Example:
+
+try:
+    # email code
+    pass
+
+except Exception as e:
+    print("Error:", e)
+
+---
+
+# 47. Running the Email Program
+
+Save the program as:
+
+send_email.py
+
+Then run:
+
+python send_email.py
+
+A successful execution can display:
+
+Email sent successfully!
+
+---
+
+# 48. Taking User Input
+
+The email subject and body can be entered by the user.
+
+Example:
+
+receiver = input("Enter receiver email: ")
+subject = input("Enter subject: ")
+body = input("Enter message: ")
+
+This makes the program interactive.
+
+---
+
+# 49. Reading Email Addresses from a File
+
+Email addresses can also be stored in a text file.
+
+Example file:
+
+recipients.txt
+
+Content:
+
+person1@example.com
+person2@example.com
+person3@example.com
+
+Python can read these addresses and use them in the email program.
+
+This is useful when the recipient list changes frequently.
+
+---
+
+# 50. Scheduling Emails
+
+Email sending can be automated using the `schedule` library.
+
+Install it with:
+
+pip install schedule
+
+Then import:
+
+import schedule
+import time
+
+A function can be scheduled at a particular time.
+
+Example:
+
+schedule.every().day.at("10:00").do(send_email)
+
+---
+
+# 51. `schedule.run_pending()`
+
+The scheduler needs to check whether a scheduled task is ready.
+
+Example:
+
+while True:
+    schedule.run_pending()
+    time.sleep(60)
+
+`run_pending()` checks for tasks that need to execute.
+
+`time.sleep(60)` waits for 60 seconds before checking again.
+
+---
+
+# 52. Complete Email Workflow
+
+Python Program
+        ↓
+Create EmailMessage
+        ↓
+Add Subject
+        ↓
+Add Sender
+        ↓
+Add Receiver
+        ↓
+Add Message Body
+        ↓
+Connect to Gmail SMTP
+        ↓
+Login
+        ↓
+Send Email
+        ↓
+Display Result
+
+---
+
+# 53. Important Modules Used
+
+| Module | Purpose |
+|--------|---------|
+| os | Files, paths and directories |
+| shutil | Advanced file and directory operations |
+| smtplib | SMTP email communication |
+| email.message | Creating email messages |
+| schedule | Scheduling tasks |
+| time | Adding delays |
+
+---
+
+# 54. Important Functions
+
+## File Handling
+
+open()
+close()
+read()
+readline()
+readlines()
+write()
+writelines()
+
+## Path and Directory Handling
+
+os.path.exists()
+os.path.join()
+os.path.getsize()
+os.path.abspath()
+os.mkdir()
+os.makedirs()
+os.rmdir()
+os.listdir()
+
+## shutil
+
+shutil.rmtree()
+
+## Email
+
+smtplib.SMTP_SSL()
+smtp.login()
+smtp.send_message()
+
+## Scheduling
+
+schedule.every()
+schedule.run_pending()
+
+---
+
+# 55. Final Summary
+
+Python provides simple tools for managing files, directories and email.
+
+File handling allows programs to store and retrieve information.
+
+The `os` module provides functions for working with paths and
+directories.
+
+The `shutil` module provides higher-level file and directory operations.
+
+The `smtplib` module allows Python to communicate with SMTP servers.
+
+`EmailMessage` makes it easier to construct email messages.
+
+Gmail can be used for automated email sending with a secure
+authentication method such as an App Password.
+
+Email sending can be extended using user input, recipient files and
+scheduled tasks.
+
+Always keep passwords and App Passwords out of public GitHub repositories.
