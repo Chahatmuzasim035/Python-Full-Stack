@@ -1,0 +1,275 @@
+# Python OOP – Day 22 & Day 23
+
+## 1. What is OOP?
+
+Object-Oriented Programming (OOP) is a programming paradigm that organizes a program around objects instead of only functions.
+
+An object contains:
+
+- Attributes – Data or properties
+- Methods – Actions or behavior
+
+OOP helps us represent real-world entities in software and makes programs easier to design, understand, maintain, and extend.
+
+---
+
+## 2. Why Do We Need OOP?
+
+For small programs, procedural programming can be simple and effective.
+
+However, as applications become larger, managing code using only variables and functions becomes difficult.
+
+For example, an e-commerce application can contain:
+
+- Products
+- Sellers
+- Customers
+- Orders
+- Payments
+- Delivery partners
+- Reviews
+- Shopping carts
+
+OOP organizes related data and functions into objects.
+
+This results in:
+
+- Cleaner code
+- Reusable code
+- Scalable applications
+- Easier maintenance
+
+---
+
+## 3. Problems with Procedural Programming
+
+In procedural programming:
+
+- Data and functions are separate.
+- Code may be repeated.
+- Large programs become difficult to maintain.
+- Reusing code becomes challenging.
+- Real-world entities are difficult to represent.
+- Modifying existing features may affect other parts of the program.
+
+---
+
+## 4. OOP Solution
+
+OOP groups related data and functions into a single unit called an object.
+
+Instead of creating separate variables and functions for every product, we can define one Product class and create multiple product objects.
+
+This reduces code duplication and improves maintainability.
+
+---
+
+## 5. Advantages of OOP
+
+### Modularity
+A large application can be divided into smaller classes.
+
+### Reusability
+A class can be reused to create multiple objects.
+
+### Scalability
+Existing classes can be extended when new features are added.
+
+### Abstraction
+Unnecessary implementation details can be hidden from the user.
+
+### Encapsulation
+Data and methods are combined into a single unit.
+
+### Inheritance
+One class can acquire properties and methods from another class.
+
+### Polymorphism
+The same method can perform different tasks depending on the object.
+
+---
+
+## 6. Class
+
+A class is a blueprint or template used to create objects.
+
+It defines the attributes and methods that objects created from the class can have.
+
+A class itself is only a design. An actual object is created from the class.
+
+Example:
+
+Product class → Blueprint for products
+
+---
+
+## 7. Object
+
+An object is an instance of a class.
+
+A single class can be used to create multiple objects.
+
+For example:
+
+Product class
+    ↓
+Laptop object
+Mobile object
+Headphones object
+Television object
+
+All objects follow the structure defined by the Product class.
+
+---
+
+## 8. Creating Objects
+
+Objects are created by calling the class name.
+
+General syntax:
+
+object_name = ClassName()
+
+Multiple objects can be created from the same class.
+
+---
+
+## 9. Attributes
+
+Attributes are variables that belong to a class or an object.
+
+They store information about an object.
+
+For a product, attributes can include:
+
+- Product Name
+- Brand
+- Price
+- Category
+- Rating
+- Stock
+
+Attributes are accessed using the dot (.) operator.
+
+Syntax:
+
+object_name.attribute_name
+
+or
+
+ClassName.attribute_name
+
+---
+
+## 10. Types of Attributes
+
+Python has two main types of attributes:
+
+### Class Attributes
+
+A class attribute belongs to the class itself.
+
+It is shared by all objects created from that class.
+
+Example:
+
+platform = "Flipkart"
+
+If every product belongs to the same platform, the platform can be stored as a class attribute.
+
+### Instance Attributes
+
+An instance attribute belongs to a specific object.
+
+Each object can have its own value.
+
+For example, different products can have different:
+
+- Product names
+- Prices
+- Brands
+- Stock values
+
+Instance attributes are usually created inside the constructor, which is covered in Day 24.
+
+---
+
+## 11. Methods
+
+A method is a function defined inside a class.
+
+Methods represent the behavior or actions that an object can perform.
+
+For a product, methods can include:
+
+- display_product()
+- check_stock()
+- apply_discount()
+- calculate_final_price()
+
+Methods are accessed using the dot (.) operator.
+
+---
+
+## 12. Types of Methods
+
+Python provides three types of methods:
+
+### Instance Methods
+
+An instance method works with a specific object.
+
+It uses `self` as its first parameter.
+
+### Class Methods
+
+A class method works with class-level data.
+
+It is defined using the `@classmethod` decorator.
+
+The first parameter is `cls`, which refers to the class.
+
+### Static Methods
+
+A static method does not depend on either the object or the class.
+
+It is defined using the `@staticmethod` decorator.
+
+Static methods are mainly used for utility or helper operations.
+
+---
+
+## 13. Accessing Attributes and Methods
+
+Attributes and methods can be accessed using the dot (.) operator.
+
+For example:
+
+object.attribute
+
+object.method()
+
+ClassName.attribute
+
+ClassName.method()
+
+---
+
+## Key Takeaway
+
+OOP helps organize programs using classes and objects.
+
+The important concepts learned are:
+
+- OOP
+- Classes
+- Objects
+- Attributes
+- Class Attributes
+- Instance Attributes
+- Methods
+- Instance Methods
+- Class Methods
+- Static Methods
+
+These concepts provide the foundation for building structured, reusable, and scalable Python applications.
