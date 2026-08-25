@@ -1,0 +1,161 @@
+# Python OOP – Day 24
+
+## 1. Constructor
+
+A constructor is a special method that is automatically executed when an object is created.
+
+In Python, the constructor is written as:
+
+__init__()
+
+It is mainly used to initialize an object.
+
+---
+
+## 2. Types of Constructors
+
+Python constructors can be commonly categorized into two types:
+
+### Non-Parameterized Constructor
+
+A non-parameterized constructor does not receive additional values while creating an object.
+
+It contains only the `self` parameter.
+
+It is useful when the object does not require external values during initialization.
+
+### Parameterized Constructor
+
+A parameterized constructor accepts additional parameters while creating an object.
+
+It is used to initialize different objects with different values.
+
+For example, a Student object can be initialized with values such as:
+
+- Name
+- Age
+- Branch
+- Roll Number
+
+---
+
+## 3. Object Creation
+
+An object is created by calling the class.
+
+When an object is created, the constructor is automatically executed.
+
+For example:
+
+Student class
+    ↓
+s1 object
+s2 object
+
+Each object has its own identity.
+
+---
+
+## 4. `self` Parameter
+
+`self` represents the current object.
+
+It is used inside the class to access the attributes and methods associated with that particular object.
+
+When different objects are created, `self` refers to the object that is currently being used.
+
+---
+
+## 5. Object Identity
+
+Every object created in Python has its own identity.
+
+The `id()` function can be used to find the identity of an object.
+
+For example:
+
+s1 = Student()
+s2 = Student()
+
+The identities of `s1` and `s2` will be different because they are two different objects.
+
+---
+
+## 6. Methods
+
+A method is a function defined inside a class.
+
+Methods describe the behavior or actions that an object can perform.
+
+For example, a Student class can have methods such as:
+
+- display_details()
+- calculate_marks()
+- display_name()
+- check_result()
+
+Methods are called using the object and dot (`.`) operator.
+
+---
+
+## 7. Instance Methods
+
+Instance methods work with a particular object.
+
+They use `self` as the first parameter.
+
+The values stored in an object can be accessed using `self`.
+
+---
+
+## 8. Class Methods
+
+Class methods work with class-level data.
+
+They are defined using the `@classmethod` decorator.
+
+The first parameter of a class method is `cls`, which represents the class.
+
+---
+
+## 9. Static Methods
+
+Static methods do not depend on a particular object or class.
+
+They are defined using the `@staticmethod` decorator.
+
+They are generally used for utility operations.
+
+---
+
+## 10. Constructor vs Method
+
+Constructor:
+
+- Uses `__init__()`
+- Automatically executes when an object is created
+- Used for initialization
+
+Method:
+
+- Represents an action or behavior
+- Called when required
+- Can perform operations on object or class data
+
+---
+
+## Key Takeaway
+
+Today, I learned about:
+
+- Constructors
+- Non-parameterized constructors
+- Parameterized constructors
+- Object creation
+- `self`
+- Object identity
+- Instance methods
+- Class methods
+- Static methods
+
+These concepts helped me understand how objects are initialized and how behavior can be defined inside Python classes.
