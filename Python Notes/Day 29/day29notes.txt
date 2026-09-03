@@ -1,0 +1,68 @@
+DAY 19 - MODULES & USER-DEFINED MODULES
+
+1. MODULE
+A module is a Python file (.py) containing reusable code such as functions and variables.
+
+2. WHY MODULES?
+- Reuse code
+- Organize programs
+- Make maintenance easier
+- Avoid repetition
+
+3. USER-DEFINED MODULE
+A Python file created by the programmer is a user-defined module.
+
+Example:
+my_module.py
+
+def greet(name):
+    return f"Hello {name}!"
+
+4. IMPORTING A MODULE
+import my_module
+print(my_module.greet("Chahat"))
+
+Use dot notation to access module members.
+
+5. IMPORTING SPECIFIC MEMBERS
+from my_module import greet
+print(greet("Alice"))
+
+6. IMPORTING MULTIPLE MEMBERS
+from my_module import add, square
+
+7. MODULE ALIAS
+import my_module as m
+print(m.greet("Bob"))
+
+8. FUNCTION ALIAS
+from my_module import square as sq
+print(sq(5))
+
+9. sys.path
+Python searches directories listed in sys.path when importing modules.
+
+import sys
+print(sys.path)
+
+10. CUSTOM MODULE PATH
+A directory can be added with:
+sys.path.append("C:/PythonModules")
+
+11. __name__
+Every Python file has the special variable __name__.
+
+Direct execution:
+__name__ == "__main__"
+
+Imported module:
+__name__ contains the module name.
+
+12. if __name__ == "__main__"
+This block runs only when the file is executed directly.
+
+13. BENEFITS
+- Reusability
+- Better organization
+- Easier maintenance
+- Separation of functionality
