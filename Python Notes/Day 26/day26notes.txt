@@ -1,0 +1,158 @@
+Encapsulation in Python
+
+1. What is Encapsulation?
+
+Encapsulation is an OOP concept that means:
+
+Wrapping data (variables) and methods together inside a class.
+
+Protecting data from unwanted outside interference.
+
+Controlling how data is accessed and modified.
+
+In Python, encapsulation is commonly implemented using:
+
+Private variables with __ prefix.
+
+Public methods to safely access or modify private data.
+
+2. Private Variables
+
+A variable beginning with __ is treated as a private attribute.
+
+Example:
+
+class BankAccount:
+    def __init__(self, name, balance):
+        self.name = name
+        self.__balance = balance
+
+Here, name is public and __balance is private.
+
+Direct access such as account.__balance is not recommended and raises AttributeError.
+
+3. Public Methods
+
+Private data is accessed or modified through public methods.
+
+Common methods in the bank account example:
+
+show_balance() – displays the balance.
+
+deposit() – adds money.
+
+withdraw() – removes money.
+
+These methods provide controlled access to the private balance.
+
+4. Getter and Setter Methods
+
+Getter
+
+A getter retrieves the value of a private variable.
+
+Example:
+
+def show_balance(self):
+    print(f"Balance: ₹{self.__balance}")
+
+Setter
+
+A setter changes the value of a private variable.
+
+Examples:
+
+def deposit(self, amount):
+    self.__balance += amount
+
+def withdraw(self, amount):
+    self.__balance -= amount
+
+5. Validation
+
+Getter and setter-style methods allow validation before changing data.
+
+Example:
+
+if amount > 0:
+    self.__balance += amount
+else:
+    print("Invalid deposit amount.")
+
+For withdrawal:
+
+if 0 < amount <= self.__balance:
+    self.__balance -= amount
+else:
+    print("Insufficient balance or invalid amount.")
+
+6. Encapsulation with Account Number
+
+Encapsulation can protect both the account number and balance.
+
+self.__acc_number = acc_number
+self.__balance = balance
+
+A private method can validate the account number:
+
+def __is_valid_account(self, acc_number):
+    return self.__acc_number == acc_number
+
+Public methods can use this private method before performing operations.
+
+7. Private Methods
+
+A method beginning with __ is treated as a private method.
+
+Example:
+
+def __is_valid_account(self, acc_number):
+    return self.__acc_number == acc_number
+
+It is used internally by the class.
+
+8. Complete Encapsulation Example
+
+class BankAccount:
+    def __init__(self, name, acc_number, balance):
+        self.name = name
+        self.__acc_number = acc_number
+        self.__balance = balance
+
+    def __is_valid_account(self, acc_number):
+        return self.__acc_number == acc_number
+
+    def show_balance(self, acc_number):
+        if self.__is_valid_account(acc_number):
+            print(f"{self.name}, your balance is ₹{self.__balance}")
+        else:
+            print("Invalid account number.")
+
+    def deposit(self, acc_number, amount):
+        if self.__is_valid_account(acc_number):
+            if amount > 0:
+                self.__balance += amount
+                print(f"₹{amount} deposited successfully.")
+            else:
+                print("Invalid deposit amount.")
+        else:
+            print("Invalid account number.")
+
+    def withdraw(self, acc_number, amount):
+        if self.__is_valid_account(acc_number):
+            if 0 < amount <= self.__balance:
+                self.__balance -= amount
+                print(f"₹{amount} withdrawn successfully.")
+            else:
+                print("Insufficient balance or invalid amount.")
+        else:
+            print("Invalid account number.")
+
+
+account = BankAccount("Jani", "ACC123", 5000)
+
+account.show_balance("ACC123")
+account.deposit("ACC123", 2000)
+account.withdraw("ACC123", 1000)
+account.show_balance("ACC123")
+account.withdraw("WRONG123", 100)
