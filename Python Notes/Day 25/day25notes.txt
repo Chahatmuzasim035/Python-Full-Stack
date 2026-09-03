@@ -1,0 +1,324 @@
+Day 26 – Python OOP: Inheritance
+
+1. What is Inheritance?
+
+Inheritance is an OOP concept where one class acquires the properties and methods of another class.
+
+Parent/Base class: the class whose properties and methods are inherited.
+
+Child/Derived class: the class that inherits from the parent.
+
+Inheritance improves code reuse and helps represent relationships between classes.
+
+2. Types of Inheritance
+
+Python supports the following commonly used types:
+
+Single Inheritance
+
+Multiple Inheritance
+
+Multilevel Inheritance
+
+Hierarchical Inheritance
+
+Hybrid Inheritance
+
+Single Inheritance
+
+A single child class inherits from one parent class.
+
+Structure:
+Parent → Child
+
+Example: Manager inherits from User.
+
+Multiple Inheritance
+
+A child class inherits from more than one parent class.
+
+Structure:
+Parent 1 + Parent 2 → Child
+
+Example: FullstackDev inherits from FrontendDev and BackendDev.
+
+Multilevel Inheritance
+
+Inheritance happens in a chain. A child inherits from its parent, and another class can inherit from that child.
+
+Structure:
+Grandparent → Parent → Child
+
+The last child can access methods available through both its parent and grandparent.
+
+Hierarchical Inheritance
+
+More than one child class inherits from the same parent class.
+
+Structure:
+Parent → Child 1
+Parent → Child 2
+
+For example, both Dog and Cat can inherit from Animal.
+
+Hybrid Inheritance
+
+Hybrid inheritance combines two or more inheritance types.
+
+For example, a design can combine multilevel and multiple inheritance.
+
+3. Multiple Inheritance
+
+A child class can inherit methods from multiple parent classes.
+
+Example:
+
+Father provides skill1()
+
+Mother provides skill2()
+
+Child provides skill3()
+
+The Child object can use methods from all three classes.
+
+Real-world examples
+
+FullstackDev → Frontend + Backend
+
+DevOpsEngineer → Developer + Tester
+
+Student → Sports + Music
+
+4. Method Resolution Order (MRO)
+
+When multiple classes contain methods with the same name, Python needs a rule to decide which method to execute.
+
+This is handled by Method Resolution Order (MRO).
+
+For a class such as:
+
+class C(A, B):
+
+Python searches according to the inheritance order and follows its MRO rules.
+
+You can inspect the MRO using:
+
+C.__mro__
+
+Example
+
+If both A and B contain show(), and C(A, B) does not define show(), the method from A is selected before the one from B.
+
+MRO is especially important in multiple and hybrid inheritance.
+
+5. Diamond Problem
+
+The diamond problem occurs when a class inherits through multiple paths from a common base class.
+
+Example:
+
+A → B
+A → C
+B + C → D
+
+Python uses C3 linearization to determine a consistent method lookup order.
+
+6. Using super()
+
+super() is a built-in function used inside a child class to access a parent class method or constructor.
+
+Main uses
+
+Reuse the parent constructor.
+
+Call a parent method from a child method.
+
+Avoid repeating initialization logic.
+
+Parent constructor
+
+A child constructor can call the parent constructor using:
+
+super().__init__()
+
+Parent method
+
+If a child overrides a method but still needs the parent's implementation:
+
+super().show()
+
+super() is commonly used with constructors and method overriding.
+
+7. Inheritance with Constructors
+
+A child class can extend the constructor of its parent.
+
+Example idea:
+
+Employee stores ename and eid.
+
+ChildEmployee adds esal.
+
+ChildEmployee calls super().__init__(ename, eid) to initialize inherited attributes.
+
+This allows the parent to handle its own initialization while the child handles additional data.
+
+8. Overriding and super()
+
+A child class can define a method with the same name as the parent class. The child implementation then takes precedence.
+
+super() allows the child to execute the parent version as well.
+
+Example idea:
+
+Parent has show().
+
+Child also has show().
+
+Child's show() calls super().show().
+
+Both parent and child behavior can then be used.
+
+9. Class Variables and Parent Access
+
+A child can define a class variable with the same name as the parent.
+
+For example:
+
+Parent.college = "rice"
+
+Child.college = "pace"
+
+self.college refers to the value associated with the child/object lookup, while Parent.college explicitly accesses the parent class variable.
+
+10. Advantages of Inheritance
+
+1. Code Reusability
+
+Existing parent-class code can be reused by child classes.
+
+2. Better Organization
+
+Related functionality can be grouped into parent-child relationships.
+
+3. Easier Maintenance
+
+Common behavior can be maintained in one parent class.
+
+4. Real-World Modeling
+
+Inheritance can represent "is-a" relationships.
+
+Examples:
+
+Dog is an Animal.
+
+Teacher is a Person.
+
+5. Extensibility
+
+A child can add new features without changing the parent.
+
+6. Less Code
+
+Common code does not have to be repeated in every child class.
+
+11. Applications of Inheritance
+
+Inheritance can be used in:
+
+Object-Oriented Programming
+
+GUI applications
+
+Game development
+
+E-commerce systems
+
+Banking applications
+
+Educational applications
+
+Web frameworks
+
+Examples:
+
+GUI: Button, Window, Label can derive from a common Widget class.
+
+Games: Player, Enemy and NPC can derive from Character.
+
+E-commerce: ElectronicsProduct and ClothingProduct can derive from Product.
+
+Banking: SavingsAccount and CurrentAccount can derive from Account.
+
+Education: Student, Teacher and Admin can derive from User.
+
+12. Disadvantages of Inheritance
+
+1. Tight Coupling
+
+Child classes depend on the parent class. Changes to the parent can affect children.
+
+2. Multiple Inheritance Can Be Confusing
+
+If multiple parents have the same method name, MRO determines which implementation is selected.
+
+3. Method Lookup Can Become Complex
+
+With long inheritance chains, understanding where a method comes from can be harder.
+
+4. Less Flexibility
+
+Poorly designed parent classes can restrict how child classes behave.
+
+5. Overuse Creates Complexity
+
+Deep or unnecessary inheritance hierarchies can make code difficult to read, maintain and debug.
+
+Important Tip
+
+Use inheritance when there is a meaningful "is-a" relationship. Do not use inheritance only for code reuse when composition would be more suitable.
+
+13. Docstrings
+
+A docstring is a documentation string used to describe what a function, class or module does.
+
+Unlike an ordinary comment, a docstring can be accessed at runtime using:
+
+.__doc__
+
+It can also be viewed through tools such as help().
+
+Example:
+
+def greet(name):
+    """This function greets a person."""
+    print("Hello,", name)
+
+print(greet.__doc__)
+
+14. Hybrid Inheritance Example
+
+Consider:
+
+Person → Student
+
+and another class:
+
+Sports
+
+Then:
+
+Student + Sports → CollegeStudent
+
+The CollegeStudent class gets:
+
+display() from Person
+
+show() from Student
+
+play() from Sports
+
+college_info() from itself
+
+This combines multilevel and multiple inheritance, making it a hybrid inheritance example.
