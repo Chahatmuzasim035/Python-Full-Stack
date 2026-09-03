@@ -1,0 +1,243 @@
+Data Abstraction in Python
+
+1. What is Data Abstraction?
+
+Data Abstraction is the process of hiding internal implementation details and showing only the essential features of an object.
+
+Main Aim
+
+The aim is to provide a simple and clear interface while hiding complex internal implementation details.
+
+In simple words:
+
+“What to do” is visible, while “how to do it” is hidden.
+
+2. When to Use Abstraction
+
+Abstraction is useful when:
+
+Complex internal logic should be hidden from users.
+
+A common set of methods must be enforced for subclasses.
+
+A simple and user-friendly interface is required.
+
+3. How Abstraction is Achieved in Python
+
+Python provides abstraction using:
+
+Abstract classes
+
+Abstract methods
+
+The abc (Abstract Base Class) module
+
+Important components:
+
+ABC – used to create an Abstract Base Class.
+
+@abstractmethod – defines a method that child classes must implement.
+
+4. Abstract Class
+
+An abstract class is a class that defines a common structure for its child classes.
+
+An abstract class cannot be instantiated directly when it contains abstract methods.
+
+Example:
+
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+5. Abstract Method
+
+An abstract method defines what operation a subclass must provide, without defining its implementation in the abstract class.
+
+Example:
+
+@abstractmethod
+def start_engine(self):
+    pass
+
+A child class must implement the abstract method before its object can be created.
+
+6. Concrete Class
+
+A concrete class is a class that inherits from an abstract class and implements all required abstract methods.
+
+Example:
+
+class Car(Vehicle):
+    def start_engine(self):
+        print("Car engine started")
+
+Now a Car object can be created.
+
+7. Bank Example
+
+An abstract Bank class can define a common loan_interest() method.
+
+Different banks can implement their own interest-rate logic.
+
+For example:
+
+SBI → 8%
+
+HDFC → 10%
+
+The user calls the same method without needing to know the internal implementation.
+
+8. Concrete Methods in an Abstract Class
+
+An abstract class can also contain concrete methods.
+
+Example:
+
+class Bank(ABC):
+    @abstractmethod
+    def loan_interest(self):
+        pass
+
+    def bank_services(self):
+        print("Common services: Net Banking, ATM, Mobile App")
+
+bank_services() is a concrete method because it has an implementation.
+
+Child classes can directly inherit and use it.
+
+9. Abstraction Without abc
+
+The material notes that internal details can also be hidden using private variables/name mangling, although this is not considered true abstraction using abstract classes.
+
+Example:
+
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.__salary = salary
+
+    def show_info(self):
+        print(f"Name: {self.name}")
+        print("Salary is confidential.")
+
+The private variable __salary is hidden from normal direct access.
+
+10. Real-Life Example: ATM
+
+An ATM provides a simple interface to the user.
+
+User sees:
+
+Withdraw
+
+Deposit
+
+Check balance
+
+Internal details are hidden:
+
+Balance calculations
+
+PIN verification
+
+Bank-server communication
+
+Cash-dispensing logic
+
+The user knows what to do, not how the system works internally.
+
+11. Mini ATM Application
+
+An abstract ATM class can define:
+
+check_balance()
+
+withdraw()
+
+deposit()
+
+A child class such as UserAccount implements these operations.
+
+The abstract class can also contain a concrete welcome() method.
+
+Private attributes such as __pin and __balance can hide internal data.
+
+12. Can a Child Class Have Its Own Methods?
+
+Yes.
+
+A child class of an abstract class:
+
+Must implement all abstract methods.
+
+Can also define additional methods specific to that child class.
+
+For example, authenticate() can be an additional method in UserAccount.
+
+13. Concrete Method vs Instance Method
+
+A method can be both a concrete method and an instance method.
+
+Example:
+
+class A:
+    def show(self):
+        pass
+
+show() is:
+
+An instance method because it has self and is called using an object.
+
+A concrete method according to the source because it has a method body containing pass.
+
+14. Benefits of Abstraction
+
+Hides complex implementation details.
+
+Provides a clean and simple interface.
+
+Reduces confusion for users.
+
+Encourages a common structure among subclasses.
+
+Supports maintainability and reusability.
+
+Helps prevent misuse of internal implementation.
+
+15. Key Terms
+
+Term
+
+Meaning
+
+ABC
+
+Abstract Base Class from the abc module
+
+@abstractmethod
+
+Decorator used for methods that subclasses must implement
+
+Abstract Class
+
+Class containing abstract behavior and not directly instantiated when abstract methods remain
+
+Concrete Class
+
+Class that implements all required abstract methods
+
+Abstract Method
+
+Method whose implementation is provided by subclasses
+
+Concrete Method
+
+Method with an implementation/body
+
+Interface
+
+The visible operations that the user can call
