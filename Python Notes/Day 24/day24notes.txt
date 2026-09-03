@@ -1,0 +1,530 @@
+Day 25 - Polymorphism in Python
+
+1. What is Polymorphism?
+
+Polymorphism means the same function, method, or operator can behave differently depending on the object or data type on which it is used.
+
+Poly = many
+
+Morph = forms
+
+So, polymorphism means many forms of the same action.
+
+Key Idea
+
+Polymorphism allows us to use a common interface while getting different behavior from different objects.
+
+2. Same Method Name, Different Behavior
+
+Different classes can have a method with the same name, but each class can implement it differently.
+
+Example:
+
+class Dog:
+    def speak(self):
+        print("Bark")
+
+class Cat:
+    def speak(self):
+        print("Meow")
+
+for animal in (Dog(), Cat()):
+    animal.speak()
+
+Output:
+
+Bark
+Meow
+
+The same speak() call produces different results. This is polymorphism.
+
+3. Types of Polymorphism in Python
+
+The notes cover four types:
+
+Duck Typing
+
+Operator Overloading
+
+Method Overloading
+
+Method Overriding
+
+4. Duck Typing
+
+Duck typing is based on the behavior of an object rather than its type.
+
+The idea is commonly explained as:
+
+If it looks like a duck and quacks like a duck, it is a duck.
+
+Python focuses on whether the required method is available.
+
+Example:
+
+class Dog:
+    def speak(self):
+        print("Bark")
+
+class Cat:
+    def speak(self):
+        print("Meow")
+
+def animal_sound(animal):
+    animal.speak()
+
+animal_sound(Dog())
+animal_sound(Cat())
+
+Output:
+
+Bark
+Meow
+
+Both classes provide speak(), so the function can work with either object.
+
+5. Operator Overloading
+
+Operator overloading means giving operators such as +, -, *, <, and == suitable behavior for different objects.
+
+For normal data:
+
+print(5 + 10)
+print("Hi" + "Bye")
+
+The + operator behaves differently:
+
+Numbers are added.
+
+Strings are joined.
+
+Lists can also use + to combine lists.
+
+[1, 2] + [3, 4]
+
+6. Special Methods Used for Operator Overloading
+
+Python uses special methods to define operator behavior.
+
+Operator
+
+Special Method
+
++
+
+__add__()
+
+-
+
+__sub__()
+
+*
+
+__mul__()
+
+<
+
+__lt__()
+
+==
+
+__eq__()
+
+7. Operator Overloading with a Custom Class
+
+Example:
+
+class Book:
+    def __init__(self, pages):
+        self.pages = pages
+
+    def __add__(self, other):
+        return self.pages + other.pages
+
+b1 = Book(100)
+b2 = Book(200)
+
+print(b1 + b2)
+
+Output:
+
+300
+
+The + operator is given a specific meaning for Book objects using __add__().
+
+8. Method Overloading
+
+Method overloading means using the same method name with different parameters.
+
+Python does not directly support true method overloading in the same way as languages such as Java or C++.
+
+Instead, similar behavior can be achieved using:
+
+Default arguments
+
+Variable-length arguments such as *args
+
+Example using a default argument:
+
+class Greet:
+    def hello(self, name=None):
+        if name:
+            print("Hello", name)
+        else:
+            print("Hello")
+
+g = Greet()
+
+g.hello()
+g.hello("Student")
+
+Output:
+
+Hello
+Hello Student
+
+The same method handles calls with different numbers of arguments.
+
+9. What Python Does NOT Allow
+
+Python does not keep multiple methods with the same name as separate overloaded methods.
+
+Example:
+
+class Demo:
+    def show(self, a):
+        print(a)
+
+    def show(self, a, b):
+        print(a, b)
+
+The second show() replaces the first one.
+
+Therefore:
+
+d = Demo()
+d.show(5)
+
+will result in an error because the remaining show() expects two arguments.
+
+10. Method Overriding
+
+Method overriding occurs when a child class provides a new implementation of a method already defined in its parent class.
+
+Example:
+
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+class Dog(Animal):
+    def speak(self):
+        print("Dog barks")
+
+a = Animal()
+d = Dog()
+
+a.speak()
+d.speak()
+
+Output:
+
+Animal speaks
+Dog barks
+
+The Dog class overrides the speak() method inherited from Animal.
+
+11. Method Overloading vs Method Overriding
+
+Concept
+
+Method Overloading
+
+Method Overriding
+
+Classes
+
+Same class
+
+Parent and child classes
+
+Method name
+
+Same
+
+Same
+
+Parameters
+
+Different/handled differently
+
+Same method signature in the notes
+
+Purpose
+
+Handle different inputs
+
+Change inherited behavior
+
+Python support
+
+Not directly supported
+
+Supported
+
+12. Real-World Example - Shop Billing
+
+A shop can calculate bills for normal and special customers.
+
+The parent class handles the normal bill:
+
+class Shop:
+    def calculate_bill(self, item1, item2=0):
+        total = item1 + item2
+        print(f"Total Bill (No Discount): ₹{total}")
+
+A special customer can override the method and apply a discount:
+
+class SpecialCustomer(Shop):
+    def calculate_bill(self, item1, item2=0):
+        total = item1 + item2
+        discount = total * 0.1
+        final_amount = total - discount
+        print(f"Total Bill after 10% discount: ₹{final_amount}")
+
+The default argument item2=0 allows the method to work with one or two items, which simulates method overloading.
+
+The child class changes the billing logic, demonstrating method overriding.
+
+13. Testing the Shop Example
+
+print("Normal Customer:")
+
+s1 = Shop()
+s1.calculate_bill(100)
+s1.calculate_bill(100, 200)
+
+print("\nSpecial Customer:")
+
+s2 = SpecialCustomer()
+s2.calculate_bill(100)
+s2.calculate_bill(100, 200)
+
+Output:
+
+Normal Customer:
+Total Bill (No Discount): ₹100
+Total Bill (No Discount): ₹300
+
+Special Customer:
+Total Bill after 10% discount: ₹90.0
+Total Bill after 10% discount: ₹270.0
+
+14. Another Operator Overloading Example - Student
+
+Operator overloading can also be used with a Student class.
+
+class Student:
+    def __init__(self, marks):
+        self.marks = marks
+
+    def __add__(self, other):
+        return self.marks + other.marks
+
+s1 = Student(50)
+s2 = Student(40)
+
+print(s1 + s2)
+
+Output:
+
+90
+
+Here, Student + Student is defined to add their marks.
+
+15. Book Class - Multiple Operators
+
+A Book class can define behavior for +, *, and print().
+
+class Book:
+    def __init__(self, pages):
+        self.pages = pages
+
+    def __add__(self, other):
+        return Book(self.pages + other.pages)
+
+    def __mul__(self, other):
+        return Book(self.pages * other.pages)
+
+    def __str__(self):
+        return str(self.pages)
+
+16. Creating Book Objects
+
+b = Book(100)
+b1 = Book(200)
+b2 = Book(300)
+
+Each object stores its own number of pages.
+
+17. Overloading the + Operator for Book
+
+The method:
+
+def __add__(self, other):
+    return Book(self.pages + other.pages)
+
+means that when two Book objects are added, their page counts are added and a new Book object is returned.
+
+For example:
+
+100 + 200 = 300
+
+18. Overloading the * Operator for Book
+
+The method:
+
+def __mul__(self, other):
+    return Book(self.pages * other.pages)
+
+defines multiplication for two Book objects.
+
+For example:
+
+100 * 200 = 20000
+
+19. Overloading print() with __str__()
+
+The method:
+
+def __str__(self):
+    return str(self.pages)
+
+controls how the object is represented when passed to print().
+
+Instead of showing an object reference, it displays the page count.
+
+20. Step-by-Step Evaluation
+
+Consider:
+
+b = Book(100)
+b1 = Book(200)
+b2 = Book(300)
+
+print(b + b1 + b2)
+
+Python evaluates it step by step.
+
+Step 1
+
+b + b1
+100 + 200 = 300
+
+This returns:
+
+Book(300)
+
+Step 2
+
+Book(300) + b2
+300 + 300 = 600
+
+The final result is:
+
+600
+
+21. Multiplication Example
+
+For:
+
+print(b * b1 * b2)
+
+Python evaluates:
+
+100 * 200 = 20000
+
+Then:
+
+20000 * 300 = 6000000
+
+Final output:
+
+6000000
+
+22. Final Output of the Book Example
+
+600
+6000000
+
+23. What Does "Overloading +" Mean?
+
+Normally, Python already knows how + works with several data types:
+
+10 + 20
+
+adds numbers.
+
+"A" + "B"
+
+joins strings.
+
+[1, 2] + [3, 4]
+
+combines lists.
+
+But Python does not automatically know what Book + Book should mean.
+
+We define that behavior using:
+
+def __add__(self, other):
+    return Book(self.pages + other.pages)
+
+This is called operator overloading.
+
+24. Meaning of self and other
+
+Inside:
+
+def __add__(self, other):
+    return Book(self.pages + other.pages)
+
+self represents the first Book object.
+
+other represents the second Book object.
+
+self.pages + other.pages adds their page counts.
+
+Book(...) creates a new object containing the result.
+
+For example:
+
+Book A = 100 pages
+Book B = 200 pages
+
+Book A + Book B
+= 100 + 200
+= 300 pages
+
+25. Final Summary
+
+Polymorphism allows the same operation or method call to produce
+different behavior depending on the object or data type.
+
+The main concepts covered are:
+
+Duck Typing
+
+Operator Overloading
+
+Method Overloading
+
+Method Overriding
+
+Special methods such as __add__(), __mul__(), and __str__()
+
+Using default arguments to simulate method overloading
+
+Changing inherited behavior through method overriding
+
+Creating real-world examples using Shop, Student, and Book classes
