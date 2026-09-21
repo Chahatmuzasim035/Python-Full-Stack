@@ -1,68 +1,95 @@
-DAY 19 - MODULES & USER-DEFINED MODULES
+Python Exception Handling — Notes
 
-1. MODULE
-A module is a Python file (.py) containing reusable code such as functions and variables.
+1. What is an Error?
 
-2. WHY MODULES?
-- Reuse code
-- Organize programs
-- Make maintenance easier
-- Avoid repetition
+An error is a problem in a program that stops it from running correctly.
 
-3. USER-DEFINED MODULE
-A Python file created by the programmer is a user-defined module.
+2. Types of Errors
 
-Example:
-my_module.py
+Syntax Error
 
-def greet(name):
-    return f"Hello {name}!"
+Occurs when Python grammar rules are broken.
 
-4. IMPORTING A MODULE
-import my_module
-print(my_module.greet("Chahat"))
+Detected before the program runs.
 
-Use dot notation to access module members.
+Example: missing closing parenthesis.
 
-5. IMPORTING SPECIFIC MEMBERS
-from my_module import greet
-print(greet("Alice"))
+Runtime Errors (Exceptions)
 
-6. IMPORTING MULTIPLE MEMBERS
-from my_module import add, square
+Occur while the program is running.
 
-7. MODULE ALIAS
-import my_module as m
-print(m.greet("Bob"))
+The code is syntactically correct but fails during execution.
 
-8. FUNCTION ALIAS
-from my_module import square as sq
-print(sq(5))
+Examples: ZeroDivisionError, ValueError, IndexError.
 
-9. sys.path
-Python searches directories listed in sys.path when importing modules.
+3. What is an Exception?
 
-import sys
-print(sys.path)
+An exception is an error that occurs during program execution and disrupts the normal flow.
 
-10. CUSTOM MODULE PATH
-A directory can be added with:
-sys.path.append("C:/PythonModules")
+Exceptions can be handled using:
 
-11. __name__
-Every Python file has the special variable __name__.
+try
 
-Direct execution:
-__name__ == "__main__"
+except
 
-Imported module:
-__name__ contains the module name.
+else
 
-12. if __name__ == "__main__"
-This block runs only when the file is executed directly.
+finally
 
-13. BENEFITS
-- Reusability
-- Better organization
-- Easier maintenance
-- Separation of functionality
+4. Common Exceptions
+
+ZeroDivisionError — division by zero
+
+ValueError — invalid value, such as int("abc")
+
+TypeError — invalid type operation
+
+IndexError — invalid list index
+
+KeyError — missing dictionary key
+
+FileNotFoundError — file does not exist
+
+NameError — undefined variable
+
+AttributeError — undefined attribute/method
+
+5. try, except, else, finally
+
+try → write risky code
+
+except → handle the error
+
+else → runs only when no exception occurs
+
+finally → always runs
+
+6. Important Rules
+
+When an exception occurs inside try, the remaining statements in that try block are skipped.
+
+Python then looks for a matching except block.
+
+If a matching except exists, the exception is handled.
+
+If no matching except exists, the program stops with an error.
+
+A generic except: catches all exceptions, but specific exceptions are generally preferred.
+
+7. Nested try-except
+
+A try-except can be placed inside another try-except when different parts of a program need separate error handling.
+
+8. Real-Life ATM Example
+
+The outer try can handle invalid PIN input, while an inner try can handle withdrawal-related errors. An else block can indicate successful completion.
+
+9. Simple Summary
+
+Error = problem in the program.
+Syntax Error = grammar/structure mistake.
+Exception = runtime error.
+try = risky code.
+except = handles error.
+else = runs after successful try.
+finally = always runs.
