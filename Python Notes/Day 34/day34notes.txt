@@ -1,0 +1,548 @@
+100 DAYS OF PYTHON
+DAY 35 — WEB SCRAPING USING PYTHON
+
+==================================================
+1. WEB SCRAPING
+==================================================
+
+Web scraping is the process of automatically collecting
+information from websites using Python.
+
+Instead of manually copying data, a program can retrieve
+and extract the required information.
+
+Applications:
+- Data Science
+- Data Analytics
+- Artificial Intelligence
+- Machine Learning
+- Automation
+- Business Intelligence
+
+
+==================================================
+2. WHY USE WEB SCRAPING?
+==================================================
+
+Web scraping can be used to:
+
+- Collect website information automatically
+- Reduce manual effort
+- Process large amounts of data
+- Monitor changes on websites
+- Store data for later analysis
+
+
+==================================================
+3. REAL-WORLD APPLICATIONS
+==================================================
+
+- Product price tracking
+- News collection
+- Job data collection
+- Weather information
+- Stock market analysis
+- Hotel and flight price monitoring
+- Research
+- Lead generation
+- Competitor analysis
+- Business intelligence
+
+
+==================================================
+4. WEB SCRAPING WORKFLOW
+==================================================
+
+Website
+   ↓
+Requests
+   ↓
+HTML Source
+   ↓
+BeautifulSoup
+   ↓
+Extract Required Data
+   ↓
+CSV / Excel / Database
+
+
+==================================================
+5. HTML
+==================================================
+
+HTML stands for HyperText Markup Language.
+
+It is used to structure web pages.
+
+Common HTML elements include:
+
+- <html>
+- <head>
+- <title>
+- <body>
+- <h1>
+- <p>
+- <a>
+- <img>
+- <table>
+
+BeautifulSoup can read this HTML structure and help
+extract the required information.
+
+
+==================================================
+6. REQUESTS MODULE
+==================================================
+
+Requests is a Python library used to send HTTP requests
+and retrieve webpage content.
+
+Installation:
+
+pip install requests
+
+Import:
+
+import requests
+
+
+==================================================
+7. GET REQUEST
+==================================================
+
+The get() method sends an HTTP GET request.
+
+Syntax:
+
+requests.get(url)
+
+Example:
+
+import requests
+
+url = "https://codegnan.com"
+response = requests.get(url)
+
+print(response)
+
+
+==================================================
+8. RESPONSE OBJECT
+==================================================
+
+requests.get() returns a Response object.
+
+Important attributes:
+
+status_code
+    Returns the HTTP status code.
+
+text
+    Returns webpage HTML as text.
+
+content
+    Returns webpage content as bytes.
+
+headers
+    Returns response headers.
+
+url
+    Returns the final URL.
+
+cookies
+    Returns received cookies.
+
+encoding
+    Returns webpage encoding.
+
+elapsed
+    Shows the response time.
+
+
+==================================================
+9. COMMON HTTP STATUS CODES
+==================================================
+
+200 → Success
+201 → Resource Created
+301 → Permanently Redirected
+302 → Temporarily Redirected
+400 → Bad Request
+401 → Unauthorized
+403 → Forbidden
+404 → Page Not Found
+405 → Method Not Allowed
+500 → Internal Server Error
+502 → Bad Gateway
+503 → Service Unavailable
+
+
+==================================================
+10. CHECK WEBSITE STATUS
+==================================================
+
+Example:
+
+import requests
+
+url = "https://codegnan.com"
+response = requests.get(url)
+
+if response.status_code == 200:
+    print("Website is accessible.")
+else:
+    print("Unable to access the website.")
+
+
+==================================================
+11. BEAUTIFULSOUP
+==================================================
+
+BeautifulSoup is a Python library used to parse HTML
+and XML documents.
+
+It makes HTML easier to search and navigate.
+
+Installation:
+
+pip install beautifulsoup4
+
+Import:
+
+from bs4 import BeautifulSoup
+
+
+==================================================
+12. CREATING A BEAUTIFULSOUP OBJECT
+==================================================
+
+Syntax:
+
+BeautifulSoup(html_content, "html.parser")
+
+Example:
+
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://codegnan.com"
+
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
+
+
+==================================================
+13. FINDING HTML ELEMENTS
+==================================================
+
+find()
+------
+Returns the first matching element.
+
+Syntax:
+
+soup.find("tag")
+
+
+find_all()
+----------
+Returns all matching elements.
+
+Syntax:
+
+soup.find_all("tag")
+
+
+Example:
+
+heading = soup.find("h1")
+print(heading.text)
+
+
+==================================================
+14. TEXT EXTRACTION
+==================================================
+
+The text property extracts the text contained inside
+an HTML element.
+
+Example:
+
+heading = soup.find("h1")
+print(heading.text)
+
+
+==================================================
+15. EXTRACT WEBSITE TITLE
+==================================================
+
+Example:
+
+title = soup.find("title")
+print(title.text)
+
+
+Another method:
+
+print(soup.title.text)
+
+
+==================================================
+16. EXTRACT HEADINGS
+==================================================
+
+Example:
+
+headings = soup.find_all(["h1", "h2", "h3"])
+
+for heading in headings:
+    print(heading.text)
+
+
+==================================================
+17. EXTRACT PARAGRAPHS
+==================================================
+
+Example:
+
+paragraph = soup.find("p")
+print(paragraph.text)
+
+
+==================================================
+18. EXTRACT HYPERLINKS
+==================================================
+
+Links are generally stored inside the href attribute.
+
+Example:
+
+links = soup.find_all("a")
+
+for link in links:
+    print(link.get("href"))
+
+
+==================================================
+19. get() METHOD
+==================================================
+
+get() is used to retrieve the value of an HTML attribute.
+
+Syntax:
+
+tag.get("attribute")
+
+
+Example:
+
+link = soup.find("a")
+print(link.get("href"))
+
+
+==================================================
+20. EXTRACT IMAGES
+==================================================
+
+Image locations are commonly stored in the src attribute.
+
+Example:
+
+images = soup.find_all("img")
+
+for image in images:
+    print(image.get("src"))
+
+
+==================================================
+21. EXTRACT TABLES
+==================================================
+
+Tables are represented using the <table> HTML tag.
+
+Example:
+
+tables = soup.find_all("table")
+
+print(tables)
+
+Tables may contain:
+- Employee information
+- Student records
+- Product details
+- Stock information
+- Reports
+
+
+==================================================
+22. COMMON BEAUTIFULSOUP METHODS
+==================================================
+
+find()
+→ Finds the first matching element.
+
+find_all()
+→ Finds all matching elements.
+
+text
+→ Extracts text from an element.
+
+get()
+→ Retrieves an attribute value.
+
+select()
+→ Finds elements using CSS selectors.
+
+select_one()
+→ Finds the first matching CSS selector.
+
+parent
+→ Accesses the parent element.
+
+children
+→ Accesses child elements.
+
+prettify()
+→ Displays formatted HTML.
+
+
+==================================================
+23. CSS SELECTORS
+==================================================
+
+CSS selectors help locate specific elements in HTML.
+
+Select by tag:
+
+soup.select("h2")
+
+
+Select by class:
+
+soup.select(".btn")
+
+
+Select by ID:
+
+soup.select("#header")
+
+
+Select nested elements:
+
+soup.select("nav a")
+
+
+==================================================
+24. select()
+==================================================
+
+select() returns all elements matching a CSS selector.
+
+Example:
+
+links = soup.select("a")
+
+for link in links:
+    print(link.get("href"))
+
+
+==================================================
+25. select_one()
+==================================================
+
+select_one() returns only the first matching element.
+
+Example:
+
+title = soup.select_one("title")
+print(title.text)
+
+
+==================================================
+26. parent
+==================================================
+
+The parent property accesses the parent HTML element.
+
+Example:
+
+title = soup.find("title")
+print(title.parent.name)
+
+
+==================================================
+27. children
+==================================================
+
+The children property allows access to the child elements
+of an HTML tag.
+
+Example:
+
+body = soup.find("body")
+
+for child in body.children:
+    print(child)
+
+
+==================================================
+28. prettify()
+==================================================
+
+prettify() displays HTML in a structured and indented format.
+
+Example:
+
+print(soup.prettify())
+
+
+==================================================
+29. BASIC SCRAPING EXAMPLE
+==================================================
+
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://codegnan.com"
+
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
+
+print(soup.title.text)
+
+
+==================================================
+30. DYNAMIC WEBSITES
+==================================================
+
+Requests and BeautifulSoup do not always work for websites
+whose content is loaded dynamically using JavaScript.
+
+For example, a webpage may initially return:
+
+<div id="root"></div>
+
+The actual information is then loaded after the page opens.
+
+In such cases, the source suggests using:
+
+- Selenium
+- Playwright
+- Backend APIs, when available
+
+
+==================================================
+31. KEY TAKEAWAYS
+==================================================
+
+- Requests is used to retrieve webpage content.
+- BeautifulSoup is used to parse and extract HTML data.
+- status_code helps check the server response.
+- find() returns the first matching element.
+- find_all() returns multiple matching elements.
+- get() extracts attribute values.
+- CSS selectors provide another way to locate elements.
+- Web scraping can automate data collection.
+- Not every website can be scraped using only Requests
+  and BeautifulSoup.
+- JavaScript-based websites may require additional tools.
