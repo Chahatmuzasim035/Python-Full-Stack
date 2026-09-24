@@ -1,0 +1,87 @@
+SHALLOW COPY AND DEEP COPY — NOTES
+
+SHALLOW COPY
+
+A shallow copy creates a new outer object, but the nested objects inside it are still shared with the original object.
+
+Syntax:
+
+import copy
+new_object = copy.copy(original_object)
+
+Example:
+
+import copy
+
+original = [[1, 2], [3, 4]]
+
+shallow = copy.copy(original)
+
+shallow[0][0] = 100
+
+print("Original:", original)
+print("Shallow Copy:", shallow)
+
+Output:
+
+Original: [[100, 2], [3, 4]]
+Shallow Copy: [[100, 2], [3, 4]]
+
+The nested list is shared, so changing it through the shallow copy also changes the original.
+
+DEEP COPY
+
+A deep copy creates a completely independent copy of the object, including all nested objects.
+
+Syntax:
+
+import copy
+new_object = copy.deepcopy(original_object)
+
+Example:
+
+import copy
+
+original = [[1, 2], [3, 4]]
+
+deep = copy.deepcopy(original)
+
+deep[0][0] = 100
+
+print("Original:", original)
+print("Deep Copy:", deep)
+
+Output:
+
+Original: [[1, 2], [3, 4]]
+Deep Copy: [[100, 2], [3, 4]]
+
+The original remains unchanged because the nested objects are independently copied.
+
+SHALLOW COPY VS DEEP COPY
+
+Feature Shallow Copy Deep Copy
+
+Function copy.copy() copy.deepcopy()
+
+Outer object New object New object
+
+Nested objects Shared Independently copied
+
+Nested modification Can affect original Does not affect original
+
+Memory usage Less More
+
+Independence Partial Complete
+
+EASY WAY TO REMEMBER
+
+Shallow Copy:
+Outer object is copied → nested references are shared.
+
+Deep Copy:
+Outer object is copied → nested objects are also copied.
+
+KEY TAKEAWAY
+
+The main difference between shallow and deep copy is how nested objects are handled. Shallow copy shares nested objects, while deep copy creates independent nested objects.
